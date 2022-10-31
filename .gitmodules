@@ -1,0 +1,3 @@
+[submodule "deps/python-package/pwnutils"]
+	path = deps/python-package/pwnutils
+	url = https://github.com/the-soloist/pwn-utils

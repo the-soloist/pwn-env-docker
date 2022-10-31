@@ -1,0 +1,189 @@
+version: "3"
+
+services:
+  ubuntu-16.04:
+    image: pwn-env/ubuntu-16.04
+    build:
+      context: ./
+      dockerfile: ./ubuntu/16.04/Dockerfile
+    volumes:
+      - ./challenge:/challenge
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./authorized_keys:/root/.ssh/authorized_keys
+    ports:
+      - "22160:22"
+      - "61604:8888"
+    expose:
+      - "22"
+      - "8888"
+
+  ubuntu-17.04:
+    image: pwn-env/ubuntu-17.04
+    build:
+      context: ./
+      dockerfile: ./ubuntu/17.04/Dockerfile
+    volumes:
+      - ./challenge:/challenge
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./authorized_keys:/root/.ssh/authorized_keys
+    ports:
+      - "22170:22"
+      - "61704:8888"
+    expose:
+      - "22"
+      - "8888"
+
+  ubuntu-17.10:
+    image: pwn-env/ubuntu-17.10
+    build:
+      context: ./
+      dockerfile: ./ubuntu/17.10/Dockerfile
+    volumes:
+      - ./challenge:/challenge
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./authorized_keys:/root/.ssh/authorized_keys
+    ports:
+      - "22171:22"
+      - "61710:8888"
+    expose:
+      - "22"
+      - "8888"
+
+  ubuntu-18.04:
+    image: pwn-env/ubuntu-18.04
+    build:
+      context: ./
+      dockerfile: ./ubuntu/18.04/Dockerfile
+    volumes:
+      - ./challenge:/challenge
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./authorized_keys:/root/.ssh/authorized_keys
+    ports:
+      - "22180:22"
+      - "61804:8888"
+    expose:
+      - "22"
+      - "8888"
+
+  ubuntu-18.10:
+    image: pwn-env/ubuntu-18.10
+    build:
+      context: ./
+      dockerfile: ./ubuntu/18.10/Dockerfile
+    volumes:
+      - ./challenge:/challenge
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./authorized_keys:/root/.ssh/authorized_keys
+    ports:
+      - "22181:22"
+      - "61810:8888"
+    expose:
+      - "22"
+      - "8888"
+
+  ubuntu-19.04:
+    image: pwn-env/ubuntu-19.04
+    build:
+      context: ./
+      dockerfile: ./ubuntu/19.04/Dockerfile
+    volumes:
+      - ./challenge:/challenge
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./authorized_keys:/root/.ssh/authorized_keys
+    ports:
+      - "22190:22"
+      - "61904:8888"
+    expose:
+      - "22"
+      - "8888"
+
+  ubuntu-19.10:
+    image: pwn-env/ubuntu-19.10
+    build:
+      context: ./
+      dockerfile: ./ubuntu/19.10/Dockerfile
+    volumes:
+      - ./challenge:/challenge
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./authorized_keys:/root/.ssh/authorized_keys
+    ports:
+      - "22191:22"
+      - "61910:8888"
+    expose:
+      - "22"
+      - "8888"
+
+  ubuntu-20.04:
+    image: pwn-env/ubuntu-20.04
+    build:
+      context: ./
+      dockerfile: ./ubuntu/20.04/Dockerfile
+    volumes:
+      - ./challenge:/challenge
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./authorized_keys:/root/.ssh/authorized_keys
+    ports:
+      - "22200:22"
+      - "62004:8888"
+    expose:
+      - "22"
+      - "8888"
+
+  ubuntu-20.10:
+    image: pwn-env/ubuntu-20.10
+    build:
+      context: ./
+      dockerfile: ./ubuntu/20.10/Dockerfile
+    volumes:
+      - ./challenge:/challenge
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./authorized_keys:/root/.ssh/authorized_keys
+    ports:
+      - "22201:22"
+      - "62010:8888"
+    expose:
+      - "22"
+      - "8888"
+
+  ubuntu-21.04:
+    image: pwn-env/ubuntu-21.04
+    build:
+      context: ./
+      dockerfile: ./ubuntu/21.04/Dockerfile
+    volumes:
+      - ./challenge:/challenge
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./authorized_keys:/root/.ssh/authorized_keys
+    ports:
+      - "22210:22"
+      - "62104:8888"
+    expose:
+      - "22"
+      - "8888"
+
+  ubuntu-22.04:
+    image: pwn-env/ubuntu-22.04
+    build:
+      context: ./
+      dockerfile: ./ubuntu/22.04/Dockerfile
+    volumes:
+      - ./challenge:/challenge
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./authorized_keys:/root/.ssh/authorized_keys
+    ports:
+      - "22220:22"
+      - "62204:8888"
+    expose:
+      - "22"
+      - "8888"
