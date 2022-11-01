@@ -3,7 +3,6 @@ FROM ubuntu:17.04
 ENV TZ=Asia/Shanghai
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN cat /etc/apt/sources.list
 RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.ustc.edu.cn\/ubuntu-old-releases/g" /etc/apt/sources.list && \
     sed -i "s/http:\/\/security.ubuntu.com/http:\/\/mirrors.ustc.edu.cn\/ubuntu-old-releases/g" /etc/apt/sources.list && \
     sed -i "s/# deb-src/deb-src/g" /etc/apt/sources.list && \
