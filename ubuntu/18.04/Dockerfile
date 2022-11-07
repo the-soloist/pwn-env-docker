@@ -7,8 +7,13 @@ RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.tuna.tsinghua.edu.cn/
     sed -i "s/http:\/\/security.ubuntu.com/http:\/\/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list && \
     sed -i "s/# deb-src/deb-src/g" /etc/apt/sources.list && \
     sed -i "s/^[^#].*archive\.canonical\.com*/#&/g" /etc/apt/sources.list
-RUN apt-get update && apt-get -y dist-upgrade && \
+
+RUN apt-get update && apt-get -y dist-upgrade locales && \
     apt-get install -y tzdata lib32z1 xinetd tcpdump
+
+RUN locale-gen zh_CN.UTF-8
+ENV LANG zh_CN.UTF-8
+ENV LC_ALL zh_CN.UTF-8
 
 
 ### config user env ###
@@ -50,6 +55,7 @@ RUN apt-get update && \
     apt-get install -y libc6-dbg libc6-dbg:i386 libseccomp-dev libgmp-dev libmpfr-dev libmpc-dev libssl-dev libffi-dev && \
     apt-get install -y vim tmux socat ruby ruby-dev openssh-server wget curl git
 
+# install pwn tools
 RUN pip3 install pip==21.3.1
 RUN pip3 install base58 pybase62 base91 prettytable colorama ipdb loguru psutil tqdm websocket-client && \
     pip3 install gmpy2 pycryptodome z3-solver angr requests pwntools
@@ -62,12 +68,15 @@ RUN cd /root/tools/gdb/plugins/pwndbg && \
     git checkout 2022.08.30 && \
     ./setup.sh
 
+# download glibc source code
 RUN mkdir /root/files && cd /root/files && \
     apt source libc6-dev
 
+# config software
 RUN mkdir /root/.ssh && \
     sed -i "s/PermitRootLogin prohibit-password/PermitRootLogin yes/g" /etc/ssh/sshd_config
 
+# remove cached file
 RUN rm -rf /root/.cache && \
     rm -rf /root/.gem && \
     rm -rf /root/.pip && \
