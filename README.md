@@ -2,9 +2,9 @@
 
 快速搭建调试 pwn 题的 docker 环境。
 
-题目放在 `./challenge` 目录下，具体细节查看 `docker-compose.yml`。
+题目放在 `./challenge` 目录中，通过 docker-compose 启动时，该目录会被映射到容器中的 `/challenge` 目录，具体细节查看 `docker-compose.yml`。
 
-## 使用
+## 使用说明
 
 ### 下载仓库
 
@@ -57,7 +57,7 @@ ssh root@127.0.0.1 -p <port>
 docker cp $HOME/.ssh/authorized_keys <container-id>:/root/.ssh/authorized_keys
 ```
 
-如果是通过 docker-compose 启动，修改本地的 authorized_keys 文件即可
+如果是通过 docker-compose 启动，也可以修改本地的 authorized_keys 文件
 
 ### xinetd 启动
 
@@ -93,3 +93,13 @@ bash ./xinetd.sh
   - 默认源：https://gems.ruby-china.com
 - apt
   - 默认源：http://mirrors.tuna.tsinghua.edu.cn
+
+## 使用截图
+
+2 核 4G 云服务器搭建耗时，时间比较长建议提前 build 镜像
+
+![0a9b70c0](./assets/0a9b70c0.png)
+
+tmux 分屏与 gdb 带源码调试
+
+![83690305](./assets/83690305.png)
