@@ -76,8 +76,7 @@ RUN mkdir /root/files && cd /root/files && \
     apt source libc6-dev
 
 # config software
-RUN mkdir /root/.ssh && \
-    sed -i "s/PermitRootLogin prohibit-password/PermitRootLogin yes/g" /etc/ssh/sshd_config
+RUN sed -i "s/PermitRootLogin prohibit-password/PermitRootLogin yes/g" /etc/ssh/sshd_config
 
 # remove cached file
 RUN rm -rf /root/.cache && \

@@ -2,9 +2,10 @@
 set -x
 
 mkdir ./challenge
+mkdir ./ssh
 mkdir -p ./config/tmux/plugins
 mkdir -p ./tools/gdb/plugins
-echo "REPLACE THIS FILE" >authorized_keys
+echo "REPLACE THIS FILE" >./ssh/authorized_keys
 
 # download gdb plugins
 pushd ./tools/gdb/plugins/

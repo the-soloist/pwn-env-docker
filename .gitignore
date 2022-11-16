@@ -233,6 +233,7 @@ $RECYCLE.BIN/
 challenge/*
 config/tmux/plugins/*
 tools/gdb/plugins/*
+ssh/*
 
 .gdb_history
 .tmux_history
