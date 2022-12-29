@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 
 services:
   ubuntu-16.04:
@@ -12,11 +12,11 @@ services:
       - ./config:/root/.config
       - ./ssh:/root/.ssh
     ports:
-      - "22160:22"
-      - "61604:8888"
+      - '22160:22'
+      - '61604:8888'
     expose:
-      - "22"
-      - "8888"
+      - '22'
+      - '8888'
 
   ubuntu-17.04:
     image: pwn-env/ubuntu-17.04
@@ -29,11 +29,11 @@ services:
       - ./config:/root/.config
       - ./ssh:/root/.ssh
     ports:
-      - "22170:22"
-      - "61704:8888"
+      - '22170:22'
+      - '61704:8888'
     expose:
-      - "22"
-      - "8888"
+      - '22'
+      - '8888'
 
   ubuntu-17.10:
     image: pwn-env/ubuntu-17.10
@@ -46,11 +46,11 @@ services:
       - ./config:/root/.config
       - ./ssh:/root/.ssh
     ports:
-      - "22171:22"
-      - "61710:8888"
+      - '22171:22'
+      - '61710:8888'
     expose:
-      - "22"
-      - "8888"
+      - '22'
+      - '8888'
 
   ubuntu-18.04:
     image: pwn-env/ubuntu-18.04
@@ -63,11 +63,11 @@ services:
       - ./config:/root/.config
       - ./ssh:/root/.ssh
     ports:
-      - "22180:22"
-      - "61804:8888"
+      - '22180:22'
+      - '61804:8888'
     expose:
-      - "22"
-      - "8888"
+      - '22'
+      - '8888'
 
   ubuntu-18.10:
     image: pwn-env/ubuntu-18.10
@@ -80,11 +80,11 @@ services:
       - ./config:/root/.config
       - ./ssh:/root/.ssh
     ports:
-      - "22181:22"
-      - "61810:8888"
+      - '22181:22'
+      - '61810:8888'
     expose:
-      - "22"
-      - "8888"
+      - '22'
+      - '8888'
 
   ubuntu-19.04:
     image: pwn-env/ubuntu-19.04
@@ -97,11 +97,11 @@ services:
       - ./config:/root/.config
       - ./ssh:/root/.ssh
     ports:
-      - "22190:22"
-      - "61904:8888"
+      - '22190:22'
+      - '61904:8888'
     expose:
-      - "22"
-      - "8888"
+      - '22'
+      - '8888'
 
   ubuntu-19.10:
     image: pwn-env/ubuntu-19.10
@@ -114,11 +114,11 @@ services:
       - ./config:/root/.config
       - ./ssh:/root/.ssh
     ports:
-      - "22191:22"
-      - "61910:8888"
+      - '22191:22'
+      - '61910:8888'
     expose:
-      - "22"
-      - "8888"
+      - '22'
+      - '8888'
 
   ubuntu-20.04:
     image: pwn-env/ubuntu-20.04
@@ -131,11 +131,11 @@ services:
       - ./config:/root/.config
       - ./ssh:/root/.ssh
     ports:
-      - "22200:22"
-      - "62004:8888"
+      - '22200:22'
+      - '62004:8888'
     expose:
-      - "22"
-      - "8888"
+      - '22'
+      - '8888'
 
   ubuntu-20.10:
     image: pwn-env/ubuntu-20.10
@@ -148,11 +148,11 @@ services:
       - ./config:/root/.config
       - ./ssh:/root/.ssh
     ports:
-      - "22201:22"
-      - "62010:8888"
+      - '22201:22'
+      - '62010:8888'
     expose:
-      - "22"
-      - "8888"
+      - '22'
+      - '8888'
 
   ubuntu-21.04:
     image: pwn-env/ubuntu-21.04
@@ -165,11 +165,11 @@ services:
       - ./config:/root/.config
       - ./ssh:/root/.ssh
     ports:
-      - "22210:22"
-      - "62104:8888"
+      - '22210:22'
+      - '62104:8888'
     expose:
-      - "22"
-      - "8888"
+      - '22'
+      - '8888'
 
   ubuntu-22.04:
     image: pwn-env/ubuntu-22.04
@@ -182,11 +182,11 @@ services:
       - ./config:/root/.config
       - ./ssh:/root/.ssh
     ports:
-      - "22220:22"
-      - "62204:8888"
+      - '22220:22'
+      - '62204:8888'
     expose:
-      - "22"
-      - "8888"
+      - '22'
+      - '8888'
 
   ubuntu-22.10:
     image: pwn-env/ubuntu-22.10
@@ -199,8 +199,8 @@ services:
       - ./config:/root/.config
       - ./ssh:/root/.ssh
     ports:
-      - "22221:22"
-      - "62210:8888"
+      - '22221:22'
+      - '62210:8888'
     expose:
-      - "22"
-      - "8888"
+      - '22'
+      - '8888'
