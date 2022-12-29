@@ -2,7 +2,7 @@
 
 快速搭建调试 pwn 题的 docker 环境。
 
-题目放在 `./challenge` 目录中，通过 docker-compose 启动时，该目录会被映射到容器中的 `/challenge` 目录，具体细节查看 `docker-compose.yml`。
+题目放在 `./challenge` 目录中，通过 docker-compose 启动时，该目录会被映射到容器中的 `/challenge` 目录。
 
 ## 使用说明
 
@@ -40,6 +40,7 @@ docker-compose down
 | pwn-env/ubuntu-20.10 | Ubuntu 20.10 | 2.32      | 22201 -> 22  | 62010 -> 8888   |
 | pwn-env/ubuntu-21.04 | Ubuntu 21.04 | 2.33      | 22210 -> 22  | 62104 -> 8888   |
 | pwn-env/ubuntu-22.04 | Ubuntu 22.04 | 2.34      | 22220 -> 22  | 62204 -> 8888   |
+| pwn-env/ubuntu-22.10 | Ubuntu 22.10 | 2.36      | 22221 -> 22  | 62210 -> 8888   |
 
 ### ssh 登录
 
@@ -51,13 +52,13 @@ docker cp $HOME/.ssh/id_rsa.pub <container-id>:/root/.ssh/authorized_keys
 ssh root@127.0.0.1 -p <port>
 ```
 
-或者
+或者将本地的 key 复制到容器中，用于远程连接
 
 ```sh
 docker cp $HOME/.ssh/authorized_keys <container-id>:/root/.ssh/authorized_keys
 ```
 
-如果是通过 docker-compose 启动，也可以修改本地的 authorized_keys 文件
+如果是通过 docker-compose 启动，也可以修改 ./ssh 目录下的 authorized_keys 文件
 
 ### xinetd 启动
 

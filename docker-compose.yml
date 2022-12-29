@@ -187,3 +187,20 @@ services:
     expose:
       - "22"
       - "8888"
+
+  ubuntu-22.10:
+    image: pwn-env/ubuntu-22.10
+    build:
+      context: ./
+      dockerfile: ./ubuntu/22.10/Dockerfile
+    volumes:
+      - ./challenge:/challenge
+      - ./deps:/deps
+      - ./config:/root/.config
+      - ./ssh:/root/.ssh
+    ports:
+      - "22221:22"
+      - "62210:8888"
+    expose:
+      - "22"
+      - "8888"
