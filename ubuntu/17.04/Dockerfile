@@ -44,8 +44,8 @@ RUN chown -R root:pwn /home/pwn && \
 ### config root env ###
 WORKDIR /root
 
-COPY ./scripts/ /root/scripts/
-COPY ./tools/ /root/tools/
+COPY ./docker/scripts/ /root/scripts/
+COPY ./docker/tools/ /root/tools/
 COPY ./config/bashrc /root/.bashrc
 COPY ./config/pip /root/.pip
 
@@ -87,7 +87,7 @@ RUN apt-get clean
 
 
 ### end ###
-COPY ./start.sh /start.sh
+COPY ./docker/start.sh /start.sh
 RUN chmod +x /start.sh
 CMD ["/start.sh"]
 
