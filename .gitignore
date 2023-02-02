@@ -232,8 +232,9 @@ $RECYCLE.BIN/
 ### Custom Ignore Files ###
 challenge/*
 config/tmux/plugins/*
-tools/gdb/plugins/*
+deps/*
 ssh/*
+tools/gdb/plugins/*
 
 .gdb_history
 .tmux_history
