@@ -8,8 +8,8 @@ services:
       dockerfile: ./ubuntu/16.04/Dockerfile
     volumes:
       - ./challenge:/challenge
-      - ./deps:/deps
       - ./config:/root/.config
+      - ./deps:/deps
       - ./ssh:/root/.ssh
     ports:
       - '22160:22'
@@ -25,8 +25,8 @@ services:
       dockerfile: ./ubuntu/17.04/Dockerfile
     volumes:
       - ./challenge:/challenge
-      - ./deps:/deps
       - ./config:/root/.config
+      - ./deps:/deps
       - ./ssh:/root/.ssh
     ports:
       - '22170:22'
@@ -42,8 +42,8 @@ services:
       dockerfile: ./ubuntu/17.10/Dockerfile
     volumes:
       - ./challenge:/challenge
-      - ./deps:/deps
       - ./config:/root/.config
+      - ./deps:/deps
       - ./ssh:/root/.ssh
     ports:
       - '22171:22'
@@ -59,8 +59,8 @@ services:
       dockerfile: ./ubuntu/18.04/Dockerfile
     volumes:
       - ./challenge:/challenge
-      - ./deps:/deps
       - ./config:/root/.config
+      - ./deps:/deps
       - ./ssh:/root/.ssh
     ports:
       - '22180:22'
@@ -76,8 +76,8 @@ services:
       dockerfile: ./ubuntu/18.10/Dockerfile
     volumes:
       - ./challenge:/challenge
-      - ./deps:/deps
       - ./config:/root/.config
+      - ./deps:/deps
       - ./ssh:/root/.ssh
     ports:
       - '22181:22'
@@ -93,8 +93,8 @@ services:
       dockerfile: ./ubuntu/19.04/Dockerfile
     volumes:
       - ./challenge:/challenge
-      - ./deps:/deps
       - ./config:/root/.config
+      - ./deps:/deps
       - ./ssh:/root/.ssh
     ports:
       - '22190:22'
@@ -110,8 +110,8 @@ services:
       dockerfile: ./ubuntu/19.10/Dockerfile
     volumes:
       - ./challenge:/challenge
-      - ./deps:/deps
       - ./config:/root/.config
+      - ./deps:/deps
       - ./ssh:/root/.ssh
     ports:
       - '22191:22'
@@ -127,8 +127,8 @@ services:
       dockerfile: ./ubuntu/20.04/Dockerfile
     volumes:
       - ./challenge:/challenge
-      - ./deps:/deps
       - ./config:/root/.config
+      - ./deps:/deps
       - ./ssh:/root/.ssh
     ports:
       - '22200:22'
@@ -144,8 +144,8 @@ services:
       dockerfile: ./ubuntu/20.10/Dockerfile
     volumes:
       - ./challenge:/challenge
-      - ./deps:/deps
       - ./config:/root/.config
+      - ./deps:/deps
       - ./ssh:/root/.ssh
     ports:
       - '22201:22'
@@ -161,8 +161,8 @@ services:
       dockerfile: ./ubuntu/21.04/Dockerfile
     volumes:
       - ./challenge:/challenge
-      - ./deps:/deps
       - ./config:/root/.config
+      - ./deps:/deps
       - ./ssh:/root/.ssh
     ports:
       - '22210:22'
@@ -178,8 +178,8 @@ services:
       dockerfile: ./ubuntu/22.04/Dockerfile
     volumes:
       - ./challenge:/challenge
-      - ./deps:/deps
       - ./config:/root/.config
+      - ./deps:/deps
       - ./ssh:/root/.ssh
     ports:
       - '22220:22'
@@ -195,8 +195,8 @@ services:
       dockerfile: ./ubuntu/22.10/Dockerfile
     volumes:
       - ./challenge:/challenge
-      - ./deps:/deps
       - ./config:/root/.config
+      - ./deps:/deps
       - ./ssh:/root/.ssh
     ports:
       - '22221:22'

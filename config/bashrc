@@ -98,13 +98,16 @@ fi
 #    . /etc/bash_completion
 #fi
 
+# # xdg config
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
+# @ python
 export PIP_CONFIG_FILE="$XDG_CONFIG_HOME/pip/pip.conf"
 export PYTHONPATH="$PYTHONPATH:/deps/python-package"
 
+# @ alias
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 alias gdb-gef="cp $HOME/tools/gdb/init/gef.conf ~/.gdbinit; gdb"
 alias gdb-peda="cp $HOME/tools/gdb/init/peda.conf ~/.gdbinit; gdb"
