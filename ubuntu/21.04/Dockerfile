@@ -53,7 +53,8 @@ RUN dpkg --add-architecture i386
 RUN apt-get update && \
     apt-get install -y gcc g++ make python3 python3-pip gdb build-essential && \
     apt-get install -y libc6-dbg libc6-dbg:i386 libseccomp-dev libgmp-dev libmpfr-dev libmpc-dev libssl-dev libffi-dev && \
-    apt-get install -y vim tmux socat ruby ruby-dev openssh-server wget curl git
+    apt-get install -y ruby ruby-dev openssh-server git vim tmux && \
+    apt-get install -y socat net-tools iputils-ping wget curl
 
 # install pwn tools
 RUN pip3 install pip --upgrade
