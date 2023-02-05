@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
-if [ $# -lt 1 ]; then
-    echo "Usage:"
-    echo "  e.g.: $0 <id>"
+if [ $# -ne 2 ]; then
+    echo "Usage:  $0 <container-id> <python-version>"
+    echo "  e.g.: $0 <id> 3.8.16"
     exit 1
 fi
 
 WORK_HOME="$(dirname $(realpath $0))"
-PY_VERSION="3.8.16"
+CONTAINER_ID="$1"
+PY_VERSION="$2"
 
 set -x
 
