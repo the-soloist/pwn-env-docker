@@ -20,11 +20,11 @@ wget https://www.python.org/ftp/python/$PY_VERSION/Python-$PY_VERSION.tar.xz -O 
 tar -xvf Python-$PY_VERSION.tar.xz
 mv Python-$PY_VERSION python-$PY_VERSION
 
-docker exec -it $1 bash -c \
+docker exec -it $CONTAINER_ID bash -c \
     "cd /deps/python-$PY_VERSION && \
     ./configure --prefix=/opt/python-$PY_VERSION && \
     make -j16 && make install"
 
-docker exec -it $1 bash -c "sed -i 's/python-package\"/&\nexport PATH=\"\/opt\/python-$PY_VERSION\/bin:\$PATH\"/' /root/.bashrc"
+docker exec -it $CONTAINER_ID bash -c "sed -i 's/python-package\"/&\nexport PATH=\"\/opt\/python-$PY_VERSION\/bin:\$PATH\"/' /root/.bashrc"
 
 rm Python-$PY_VERSION.tar.xz

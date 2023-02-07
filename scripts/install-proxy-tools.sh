@@ -13,6 +13,6 @@ PORT="$2"
 
 set -x
 
-docker exec -it $1 bash -c "apt-get update"
-docker exec -it $1 bash -c "apt-get install proxychains4"
-docker exec -it $1 bash -c "sed -i '/^socks4/csocks5 $HOST $PORT' /etc/proxychains4.conf"
+docker exec -it $CONTAINER_ID bash -c "apt-get update"
+docker exec -it $CONTAINER_ID bash -c "apt-get install proxychains4"
+docker exec -it $CONTAINER_ID bash -c "sed -i '/^socks4/csocks5 $HOST $PORT' /etc/proxychains4.conf"
