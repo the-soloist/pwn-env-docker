@@ -82,12 +82,14 @@ bash ./xinetd.sh
   - 插件对应启动命令：gdb-gef、gdb-peda、gdb-pwndbg
 - tmux
   - 插件：
-    - tmux-prefix-highlight
     - tmux-mem-cpu-load
+    - tmux-prefix-highlight
     - tmux-sensible
     - tmux-sidebar
     - tmux-yank
     - tpm
+  - 配置：
+    - 默认 prefix 为 C-x
 - pip
   - 默认源：https://pypi.tuna.tsinghua.edu.cn/simple
 - gem
