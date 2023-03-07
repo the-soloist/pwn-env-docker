@@ -7,13 +7,13 @@
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
-#HISTCONTROL=ignoredups:ignorespace
+HISTCONTROL=ignoredups:ignorespace
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-#HISTSIZE=1000
+HISTSIZE=1000
 HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
@@ -78,9 +78,9 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias l="ls -al"
-alias la="ls -Al"
-alias ll="ls -l"
+alias l="ls -alh"
+alias la="ls -Alh"
+alias ll="ls -lh"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -121,6 +121,8 @@ export PYTHONPATH="$PYTHONPATH:/deps/python-package"
 
 # @ binary
 alias c="clear"
+alias hs="history | grep"
+alias hsi="history | grep -i"
 alias pc4="proxychains4"
 
 # @ default args
