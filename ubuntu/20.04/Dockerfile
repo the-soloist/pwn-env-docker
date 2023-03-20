@@ -72,8 +72,8 @@ RUN cd /root/tools/gdb/plugins/pwndbg && \
 RUN mkdir /root/files && cd /root/files && \
     apt source libc6-dev
 
-# config software
-RUN sed -i "s/PermitRootLogin prohibit-password/PermitRootLogin yes/g" /etc/ssh/sshd_config
+# edit configurations
+RUN sed -i "s/#PermitRootLogin prohibit-password/PermitRootLogin yes/g" /etc/ssh/sshd_config
 
 # remove cached file
 RUN rm -rf /root/.cache && \
