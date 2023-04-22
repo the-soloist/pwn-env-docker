@@ -51,15 +51,16 @@ COPY ./config/pip /root/.pip
 
 RUN dpkg --add-architecture i386
 RUN apt-get update && \
-    apt-get install -y gcc g++ make python3 python3-pip gdb build-essential && \
+    apt-get install -y gcc g++ make python3 python3-pip ruby ruby-dev build-essential && \
     apt-get install -y libc6-dbg libc6-dbg:i386 libseccomp-dev libgmp-dev libmpfr-dev libmpc-dev libssl-dev libffi-dev && \
-    apt-get install -y ruby ruby-dev openssh-server git vim tmux && \
+    apt-get install -y gdb openssh-server git vim tmux && \
     apt-get install -y socat net-tools iputils-ping wget curl
 
 # install pwn tools
 RUN pip3 install pip==21.3.1
-RUN pip3 install base58 pybase62 base91 prettytable colorama ipdb loguru psutil tqdm websocket-client && \
-    pip3 install gmpy2 pycryptodome z3-solver angr requests pwntools
+RUN pip3 install base58 pybase62 base91 prettytable colorama loguru tqdm && \
+    pip3 install websocket-client ipdb psutil redis requests && \
+    pip3 install gmpy2 pycryptodome z3-solver angr pwntools
 
 RUN gem sources --add https://gems.ruby-china.com && \
     gem install one_gadget && \
