@@ -3,6 +3,7 @@ version: '3'
 services:
   ubuntu-16.04:
     image: pwn-env/ubuntu-16.04
+    container_name: pwn-env_ubuntu-16.04
     build:
       context: ./
       dockerfile: ./ubuntu/16.04/Dockerfile
@@ -20,6 +21,7 @@ services:
 
   ubuntu-17.04:
     image: pwn-env/ubuntu-17.04
+    container_name: pwn-env_ubuntu-17.04
     build:
       context: ./
       dockerfile: ./ubuntu/17.04/Dockerfile
@@ -37,6 +39,7 @@ services:
 
   ubuntu-17.10:
     image: pwn-env/ubuntu-17.10
+    container_name: pwn-env_ubuntu-17.10
     build:
       context: ./
       dockerfile: ./ubuntu/17.10/Dockerfile
@@ -54,6 +57,7 @@ services:
 
   ubuntu-18.04:
     image: pwn-env/ubuntu-18.04
+    container_name: pwn-env_ubuntu-18.04
     build:
       context: ./
       dockerfile: ./ubuntu/18.04/Dockerfile
@@ -71,6 +75,7 @@ services:
 
   ubuntu-18.10:
     image: pwn-env/ubuntu-18.10
+    container_name: pwn-env_ubuntu-18.10
     build:
       context: ./
       dockerfile: ./ubuntu/18.10/Dockerfile
@@ -88,6 +93,7 @@ services:
 
   ubuntu-19.04:
     image: pwn-env/ubuntu-19.04
+    container_name: pwn-env_ubuntu-19.04
     build:
       context: ./
       dockerfile: ./ubuntu/19.04/Dockerfile
@@ -105,6 +111,7 @@ services:
 
   ubuntu-19.10:
     image: pwn-env/ubuntu-19.10
+    container_name: pwn-env_ubuntu-19.10
     build:
       context: ./
       dockerfile: ./ubuntu/19.10/Dockerfile
@@ -122,6 +129,7 @@ services:
 
   ubuntu-20.04:
     image: pwn-env/ubuntu-20.04
+    container_name: pwn-env_ubuntu-20.04
     build:
       context: ./
       dockerfile: ./ubuntu/20.04/Dockerfile
@@ -139,6 +147,7 @@ services:
 
   ubuntu-20.10:
     image: pwn-env/ubuntu-20.10
+    container_name: pwn-env_ubuntu-20.10
     build:
       context: ./
       dockerfile: ./ubuntu/20.10/Dockerfile
@@ -156,6 +165,7 @@ services:
 
   ubuntu-21.04:
     image: pwn-env/ubuntu-21.04
+    container_name: pwn-env_ubuntu-21.04
     build:
       context: ./
       dockerfile: ./ubuntu/21.04/Dockerfile
@@ -173,6 +183,7 @@ services:
 
   ubuntu-22.04:
     image: pwn-env/ubuntu-22.04
+    container_name: pwn-env_ubuntu-22.04
     build:
       context: ./
       dockerfile: ./ubuntu/22.04/Dockerfile
@@ -190,6 +201,7 @@ services:
 
   ubuntu-22.10:
     image: pwn-env/ubuntu-22.10
+    container_name: pwn-env_ubuntu-22.10
     build:
       context: ./
       dockerfile: ./ubuntu/22.10/Dockerfile

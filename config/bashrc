@@ -115,6 +115,9 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export PIP_CONFIG_FILE="$XDG_CONFIG_HOME/pip/pip.conf"
 export PYTHONPATH="$PYTHONPATH:/deps/python-package"
 
+# @ other
+export PATH="$HOME/.local/bin:$PATH"
+
 # =============
 # === alias ===
 # =============
