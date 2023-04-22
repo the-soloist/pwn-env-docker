@@ -75,6 +75,11 @@ bash ./xinetd.sh
 - vim、tmux、socat
 - glibc 源码（位于 `/root/files/glibc-<version>`）
 
+常用工具：
+
+- https://github.com/matrix1001/glibc-all-in-one
+- https://github.com/lieanu/LibcSearcher
+
 ## 默认配置
 
 - gdb
