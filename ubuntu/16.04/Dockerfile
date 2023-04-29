@@ -63,6 +63,7 @@ RUN pip3 install base58 pybase62 base91 prettytable colorama ipdb loguru psutil 
     pip3 install gmpy2 pycryptodome z3-solver requests pwntools
 
 RUN gem sources --add https://gems.ruby-china.com && \
+    gem install bindata -v 2.4.14 && \
     gem install one_gadget -v 1.7.3 && \
     gem install seccomp-tools -v 1.3.0
 
