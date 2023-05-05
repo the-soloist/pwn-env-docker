@@ -69,6 +69,8 @@ RUN gem sources --add https://gems.ruby-china.com && \
 RUN cd /root/tools/gdb/plugins/pwndbg && \
     ./setup.sh
 
+RUN cp /root/tools/gdb/init/pwndbg.conf /root/.gdbinit
+
 # download glibc source code
 RUN mkdir /root/files && cd /root/files && \
     apt source libc6-dev

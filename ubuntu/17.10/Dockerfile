@@ -72,6 +72,8 @@ RUN cd /root/tools/gdb/plugins/pwndbg && \
     git checkout 2022.01.05 && \
     ./setup.sh
 
+RUN cp /root/tools/gdb/init/pwndbg.conf /root/.gdbinit
+
 # download glibc source code
 RUN mkdir /root/files && cd /root/files && \
     apt source libc6-dev
