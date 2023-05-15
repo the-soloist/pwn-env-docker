@@ -20,6 +20,7 @@ curl -C - https://raw.githubusercontent.com/hugsy/gef/master/gef.py -o gef.py
 git clone https://github.com/pwndbg/pwndbg
 git clone https://github.com/longld/peda
 git clone https://github.com/scwuaptx/Pwngdb
+git clone https://github.com/the-soloist/splitmind
 popd
 
 # download tmux plugins
