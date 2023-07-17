@@ -2,7 +2,6 @@
 set -x
 
 # init
-mkdir ./challenge
 mkdir ./ssh
 mkdir -p ./config/tmux/plugins
 mkdir -p ./deps/python-package

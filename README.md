@@ -20,9 +20,25 @@ bash ./setup.sh
 
 ### 启动/关闭容器
 
+本项目提供了两种构建方式：
+
+1. 本地构建
+2. 拉取 docker hub 镜像构建（通过 github 自动上传，节约 build 时间）
+
+#### 通过 docker hub 镜像构建
+
+docker hub 中仅上传了几个常用的版本，具体请查看 [docker-compose.yml](./docker-compose.yml)，其他版本请通过 docker-compose-dev.yml 进行构建
+
+由于部分插件是使用 volumes 进行映射的，所以拉取镜像前也需要执行 `setup.sh` 脚本安装依赖
+
 ```sh
-docker-compose up --build <service-name>
-docker-compose down
+docker-compose up -d <service-name>
+```
+
+#### 本地构建
+
+```sh
+docker-compose -f docker-compose-dev.yml up -d <service-name>
 ```
 
 ### 容器环境信息
@@ -44,7 +60,7 @@ docker-compose down
 
 ### ssh 登录
 
-默认没有设置 root 的密码，只能通过密钥登录
+默认容器没有设置 root 的密码，只能通过密钥登录
 
 ```sh
 ssh-keygen -b 4096
@@ -60,7 +76,7 @@ docker cp $HOME/.ssh/authorized_keys <container-id>:/root/.ssh/authorized_keys
 
 如果是通过 docker-compose 启动，也可以修改 ./ssh 目录下的 authorized_keys 文件
 
-### xinetd 启动
+### 启动 xinetd
 
 ```sh
 cd /root/scripts/xinetd

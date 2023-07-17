@@ -13,4 +13,6 @@ fi
 CONTAINER_ID="$1"
 SHELL_TYPE="$2"
 
+set -x
+
 docker exec -it $CONTAINER_ID $SHELL_TYPE
