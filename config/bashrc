@@ -144,4 +144,4 @@ if [[ -n "$TMUX" ]]; then
     typeset -aU path
 fi
 
-clear
+# clear
