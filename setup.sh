@@ -10,7 +10,7 @@ echo "REPLACE THIS FILE" >./ssh/authorized_keys
 
 # deps
 pushd ./deps/python-package
-git clone https://github.com/the-soloist/pwn-utils pwnutils
+git clone https://github.com/the-soloist/pwn-toolkit pwnkit
 popd
 
 # download gdb plugins
