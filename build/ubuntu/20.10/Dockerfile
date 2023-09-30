@@ -58,9 +58,10 @@ RUN apt-get update && \
 
 # install pwn tools
 RUN pip3 install pip --upgrade
-RUN pip3 install base58 pybase62 base91 prettytable colorama loguru tqdm && \
-    pip3 install websocket-client ipdb psutil redis requests && \
-    pip3 install gmpy2 pycryptodome z3-solver angr pwntools
+RUN pip3 install prettytable colorama loguru tqdm && \
+    pip3 install websocket-client psutil requests redis && \
+    pip3 install base58 pybase62 base91 gmpy2 pycryptodome && \
+    pip3 install ipdb z3-solver angr pwntools
 
 RUN gem sources --add https://gems.ruby-china.com && \
     gem install one_gadget && \

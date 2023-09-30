@@ -59,8 +59,10 @@ RUN apt-get update && \
 # install pwn tools
 RUN pip3 install pip==20.3.4
 # angr need python > 3.6
-RUN pip3 install base58 pybase62 base91 prettytable colorama ipdb loguru psutil tqdm websocket-client && \
-    pip3 install gmpy2 pycryptodome z3-solver requests pwntools
+RUN pip3 install prettytable colorama loguru tqdm && \
+    pip3 install websocket-client psutil requests redis && \
+    pip3 install base58 pybase62 base91 gmpy2 pycryptodome && \
+    pip3 install ipdb z3-solver pwntools
 
 RUN gem sources --add https://gems.ruby-china.com && \
     gem install bindata -v 2.4.14 && \
