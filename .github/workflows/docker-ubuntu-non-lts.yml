@@ -1,0 +1,276 @@
+name: Build Docker Images (Ubuntu non-LTS)
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    # CST = UTC + 8:00，每周六 01:00 执行任务
+    - cron: '0 17 * * 5'
+
+jobs:
+  init-build-env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: bash ./setup.sh
+
+      - name: Compress Folder
+        run: tar -zcvf /tmp/artifact.tar.gz .
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: env-artifact
+          path: /tmp/artifact.tar.gz
+
+  build-ubuntu1704:
+    runs-on: ubuntu-latest
+    needs: [init-build-env]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: env-artifact
+          path: .
+
+      - name: Decompress Artifact
+        run: tar -xvf artifact.tar.gz .
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./build/ubuntu/17.04/Dockerfile
+          push: true
+          tags: th3s/pwn-env:ubuntu-17.04
+
+  build-ubuntu1710:
+    runs-on: ubuntu-latest
+    needs: [init-build-env]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: env-artifact
+          path: .
+
+      - name: Decompress Artifact
+        run: tar -xvf artifact.tar.gz .
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./build/ubuntu/17.10/Dockerfile
+          push: true
+          tags: th3s/pwn-env:ubuntu-17.10
+
+  build-ubuntu1810:
+    runs-on: ubuntu-latest
+    needs: [init-build-env]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: env-artifact
+          path: .
+
+      - name: Decompress Artifact
+        run: tar -xvf artifact.tar.gz .
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./build/ubuntu/18.10/Dockerfile
+          push: true
+          tags: th3s/pwn-env:ubuntu-18.10
+
+  build-ubuntu1904:
+    runs-on: ubuntu-latest
+    needs: [init-build-env]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: env-artifact
+          path: .
+
+      - name: Decompress Artifact
+        run: tar -xvf artifact.tar.gz .
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./build/ubuntu/19.04/Dockerfile
+          push: true
+          tags: th3s/pwn-env:ubuntu-19.04
+
+  build-ubuntu1910:
+    runs-on: ubuntu-latest
+    needs: [init-build-env]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: env-artifact
+          path: .
+
+      - name: Decompress Artifact
+        run: tar -xvf artifact.tar.gz .
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./build/ubuntu/19.10/Dockerfile
+          push: true
+          tags: th3s/pwn-env:ubuntu-19.10
+
+  build-ubuntu2010:
+    runs-on: ubuntu-latest
+    needs: [init-build-env]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: env-artifact
+          path: .
+
+      - name: Decompress Artifact
+        run: tar -xvf artifact.tar.gz .
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./build/ubuntu/20.10/Dockerfile
+          push: true
+          tags: th3s/pwn-env:ubuntu-20.10
+
+  build-ubuntu2104:
+    runs-on: ubuntu-latest
+    needs: [init-build-env]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: env-artifact
+          path: .
+
+      - name: Decompress Artifact
+        run: tar -xvf artifact.tar.gz .
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./build/ubuntu/21.04/Dockerfile
+          push: true
+          tags: th3s/pwn-env:ubuntu-21.04
+
+  build-ubuntu2210:
+    runs-on: ubuntu-latest
+    needs: [init-build-env]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: env-artifact
+          path: .
+
+      - name: Decompress Artifact
+        run: tar -xvf artifact.tar.gz .
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./build/ubuntu/22.10/Dockerfile
+          push: true
+          tags: th3s/pwn-env:ubuntu-22.10

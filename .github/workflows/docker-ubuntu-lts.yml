@@ -1,4 +1,4 @@
-name: Build and Push Docker Images
+name: Build Docker Images (Ubuntu LTS)
 
 on:
   push:
