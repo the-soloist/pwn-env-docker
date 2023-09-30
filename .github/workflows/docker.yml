@@ -54,7 +54,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./ubuntu/16.04/Dockerfile
+          file: ./build/ubuntu/16.04/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-16.04
 
@@ -85,7 +85,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./ubuntu/18.04/Dockerfile
+          file: ./build/ubuntu/18.04/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-18.04
 
@@ -116,7 +116,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./ubuntu/20.04/Dockerfile
+          file: ./build/ubuntu/20.04/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-20.04
 
@@ -147,6 +147,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./ubuntu/22.04/Dockerfile
+          file: ./build/ubuntu/22.04/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-22.04
