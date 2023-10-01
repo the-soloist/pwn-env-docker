@@ -71,7 +71,7 @@ RUN pip3 install prettytable colorama loguru tqdm && \
 #     gem install seccomp-tools
 
 RUN cd /root/tools/gdb/plugins/pwndbg && \
-    git checkout 2022.01.05 && \
+    git checkout -f 2022.01.05 && \
     ./setup.sh
 
 RUN cp /root/tools/gdb/init/pwndbg.conf /root/.gdbinit
