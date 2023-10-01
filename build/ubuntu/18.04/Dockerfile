@@ -65,7 +65,7 @@ RUN pip3 install prettytable colorama loguru tqdm && \
 
 RUN gem sources --add https://gems.ruby-china.com && \
     gem install one_gadget && \
-    gem install seccomp-tools
+    gem install seccomp-tools -v 1.5.0
 
 RUN cd /root/tools/gdb/plugins/pwndbg && \
     git checkout 2022.08.30 && \
