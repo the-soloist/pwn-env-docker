@@ -68,6 +68,7 @@ RUN gem sources --add https://gems.ruby-china.com && \
     gem install seccomp-tools -v 1.5.0
 
 RUN cd /root/tools/gdb/plugins/pwndbg && \
+    git checkout 2023.07.17 && \
     ./setup.sh
 
 RUN cp /root/tools/gdb/init/pwndbg.conf /root/.gdbinit
