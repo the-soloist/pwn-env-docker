@@ -57,6 +57,8 @@ docker-compose -f docker-compose-dev.yml up -d <service-name>
 | pwn-env/ubuntu-21.04 | Ubuntu 21.04 | 2.33      | 22210 -> 22  | 62104 -> 8888   |
 | pwn-env/ubuntu-22.04 | Ubuntu 22.04 | 2.34      | 22220 -> 22  | 62204 -> 8888   |
 | pwn-env/ubuntu-22.10 | Ubuntu 22.10 | 2.36      | 22221 -> 22  | 62210 -> 8888   |
+| pwn-env/ubuntu-23.04 | Ubuntu 23.04 | 2.37      | 22230 -> 22  | 62304 -> 8888   |
+| pwn-env/ubuntu-23.10 | Ubuntu 23.10 | 2.38      | 22231 -> 22  | 62310 -> 8888   |
 
 ### ssh 登录
 

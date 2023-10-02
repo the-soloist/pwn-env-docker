@@ -216,3 +216,39 @@ services:
     expose:
       - '22'
       - '8888'
+
+  ubuntu-23.04:
+    image: pwn-env/ubuntu-23.04
+    container_name: pwn-env_ubuntu-23.04
+    build:
+      context: ./
+      dockerfile: ./build/ubuntu/23.04/Dockerfile
+    volumes:
+      - ./challenge:/challenge
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./ssh:/root/.ssh
+    ports:
+      - '22230:22'
+      - '62304:8888'
+    expose:
+      - '22'
+      - '8888'
+
+  ubuntu-23.10:
+    image: pwn-env/ubuntu-23.10
+    container_name: pwn-env_ubuntu-23.10
+    build:
+      context: ./
+      dockerfile: ./build/ubuntu/23.10/Dockerfile
+    volumes:
+      - ./challenge:/challenge
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./ssh:/root/.ssh
+    ports:
+      - '22231:22'
+      - '62310:8888'
+    expose:
+      - '22'
+      - '8888'
