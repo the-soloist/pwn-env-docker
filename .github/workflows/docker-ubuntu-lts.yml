@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'build/ubuntu/lts/**'
+      - 'config/**'
+      - 'docker/**'
+      - 'docker-compose-dev.yml'
+      - 'docker-compose.yml'
   schedule:
     # CST = UTC + 8:00，每周六 00:00 执行任务
     - cron: '0 16 * * 5'
@@ -51,7 +57,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./build/ubuntu/16.04/Dockerfile
+          file: ./build/ubuntu/lts/16.04/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-16.04
 
@@ -79,7 +85,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./build/ubuntu/18.04/Dockerfile
+          file: ./build/ubuntu/lts/18.04/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-18.04
 
@@ -107,7 +113,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./build/ubuntu/20.04/Dockerfile
+          file: ./build/ubuntu/lts/20.04/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-20.04
 
@@ -135,6 +141,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./build/ubuntu/22.04/Dockerfile
+          file: ./build/ubuntu/lts/22.04/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-22.04

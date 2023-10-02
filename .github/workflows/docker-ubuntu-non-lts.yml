@@ -4,9 +4,15 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'build/ubuntu/non-lts/**'
+      - 'config/**'
+      - 'docker/**'
+      - 'docker-compose-dev.yml'
+      - 'docker-compose.yml'
   schedule:
-    # CST = UTC + 8:00，每月第一个周六 00:00 执行任务
-    - cron: '0 16 1-7 * 5'
+    # CST = UTC + 8:00，每月第一个周六 01:00 执行任务
+    - cron: '0 17 1-7 * 5'
 
 jobs:
   init-build-env:
@@ -51,7 +57,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./build/ubuntu/17.04/Dockerfile
+          file: ./build/ubuntu/non-lts/17.04/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-17.04
 
@@ -79,7 +85,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./build/ubuntu/17.10/Dockerfile
+          file: ./build/ubuntu/non-lts/17.10/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-17.10
 
@@ -107,7 +113,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./build/ubuntu/18.10/Dockerfile
+          file: ./build/ubuntu/non-lts/18.10/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-18.10
 
@@ -135,7 +141,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./build/ubuntu/19.04/Dockerfile
+          file: ./build/ubuntu/non-lts/19.04/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-19.04
 
@@ -163,7 +169,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./build/ubuntu/19.10/Dockerfile
+          file: ./build/ubuntu/non-lts/19.10/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-19.10
 
@@ -191,7 +197,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./build/ubuntu/20.10/Dockerfile
+          file: ./build/ubuntu/non-lts/20.10/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-20.10
 
@@ -219,7 +225,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./build/ubuntu/21.04/Dockerfile
+          file: ./build/ubuntu/non-lts/21.04/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-21.04
 
@@ -247,7 +253,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./build/ubuntu/22.10/Dockerfile
+          file: ./build/ubuntu/non-lts/22.10/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-22.10
 
@@ -275,7 +281,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./build/ubuntu/23.04/Dockerfile
+          file: ./build/ubuntu/non-lts/23.04/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-23.04
 
@@ -303,6 +309,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./build/ubuntu/23.10/Dockerfile
+          file: ./build/ubuntu/non-lts/23.10/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-23.10
