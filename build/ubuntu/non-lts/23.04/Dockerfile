@@ -57,6 +57,7 @@ RUN apt-get update && \
     apt-get install -y socat net-tools iputils-ping wget curl
 
 # install pwn tools
+RUN mv /usr/lib/python3.11/EXTERNALLY-MANAGED /usr/lib/python3.11/EXTERNALLY-MANAGED.bak
 RUN pip3 install pip --upgrade
 RUN pip3 install prettytable colorama loguru tqdm && \
     pip3 install websocket-client psutil requests redis && \
