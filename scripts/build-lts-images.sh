@@ -6,4 +6,7 @@ docker rmi th3s/pwn-env:ubuntu-16.04
 docker rmi th3s/pwn-env:ubuntu-18.04
 docker rmi th3s/pwn-env:ubuntu-20.04
 docker rmi th3s/pwn-env:ubuntu-22.04
-docker-compose pull
+docker-compose pull ubuntu-16.04
+docker-compose pull ubuntu-18.04
+docker-compose pull ubuntu-20.04
+docker-compose pull ubuntu-22.04
