@@ -61,7 +61,7 @@ RUN pip3 install pip==20.3.4
 # angr need python > 3.6
 RUN pip3 install prettytable colorama loguru tqdm && \
     pip3 install websocket-client psutil requests redis && \
-    pip3 install base58 pybase62 base91 gmpy2 pycryptodome && \
+    pip3 install gmpy2 pycryptodome && \
     pip3 install ipdb z3-solver pwntools
 
 # Error fetching https://gems.ruby-china.com:                                                                         
@@ -76,6 +76,10 @@ RUN cd /root/tools/gdb/plugins/pwndbg && \
 
 RUN cp /root/tools/gdb/init/pwndbg.conf /root/.gdbinit
 
+# install custom tools
+COPY ./docker/deps/ /tmp/scripts/
+RUN bash /tmp/scripts/install.sh
+
 # download glibc source code
 RUN mkdir /root/files && cd /root/files && \
     apt source libc6-dev
@@ -87,8 +91,9 @@ RUN sed -i "s/#PermitRootLogin prohibit-password/PermitRootLogin yes/g" /etc/ssh
 RUN rm -rf /root/.cache && \
     rm -rf /root/.gem && \
     rm -rf /root/.pip && \
-    rm -rf /root/files/glibc_*
-RUN apt-get clean
+    rm -rf /root/files/glibc_* && \
+    rm -rf /tmp/scripts
+    RUN apt-get clean
 
 
 ### end ###
