@@ -12,7 +12,8 @@ on:
       - 'docker-compose.yml'
   schedule:
     # CST = UTC + 8:00，每周六 00:00 执行任务
-    - cron: '0 16 * * 5'
+    - cron: '0 16 * * FRI'
+  workflow_dispatch:
 
 jobs:
   init-build-env:
