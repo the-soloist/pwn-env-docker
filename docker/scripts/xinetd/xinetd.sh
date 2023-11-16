@@ -2,4 +2,4 @@
 set -x
 
 cp ./xinetd.conf /etc/xinetd.d/xinetd
-/etc/init.d/xinetd start
+/etc/init.d/xinetd restart
