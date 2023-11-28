@@ -6,13 +6,9 @@ on:
       - main
     paths:
       - 'build/ubuntu/lts/**'
-      - 'config/**'
       - 'docker/**'
-      - 'docker-compose-dev.yml'
-      - 'docker-compose.yml'
   schedule:
-    # CST = UTC + 8:00，每周六 00:00 执行任务
-    - cron: '0 16 * * FRI'
+    - cron: '0 22 * * FRI' # 每周六 06:00 执行任务（CST = UTC + 8:00）
   workflow_dispatch:
 
 jobs:
@@ -20,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Dependencies
         run: bash ./setup.sh
@@ -55,7 +51,7 @@ jobs:
         run: unzip artifact.zip -d .
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: ./
           file: ./build/ubuntu/lts/16.04/Dockerfile
@@ -83,7 +79,7 @@ jobs:
         run: unzip artifact.zip -d .
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: ./
           file: ./build/ubuntu/lts/18.04/Dockerfile
@@ -111,7 +107,7 @@ jobs:
         run: unzip artifact.zip -d .
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: ./
           file: ./build/ubuntu/lts/20.04/Dockerfile
@@ -139,7 +135,7 @@ jobs:
         run: unzip artifact.zip -d .
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: ./
           file: ./build/ubuntu/lts/22.04/Dockerfile

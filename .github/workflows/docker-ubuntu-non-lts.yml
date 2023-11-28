@@ -6,13 +6,9 @@ on:
       - main
     paths:
       - 'build/ubuntu/non-lts/**'
-      - 'config/**'
       - 'docker/**'
-      - 'docker-compose-dev.yml'
-      - 'docker-compose.yml'
   schedule:
-    # CST = UTC + 8:00，每月第一天 08:00 执行任务
-    - cron: '0 0 1 * *'
+    - cron: '0 0 1 * *' # 每月第一天 08:00 执行任务（CST = UTC + 8:00）
   workflow_dispatch:
 
 jobs:
@@ -20,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Dependencies
         run: bash ./setup.sh
@@ -55,7 +51,7 @@ jobs:
         run: unzip artifact.zip -d .
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: ./
           file: ./build/ubuntu/non-lts/17.04/Dockerfile
@@ -83,7 +79,7 @@ jobs:
         run: unzip artifact.zip -d .
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: ./
           file: ./build/ubuntu/non-lts/17.10/Dockerfile
@@ -111,7 +107,7 @@ jobs:
         run: unzip artifact.zip -d .
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: ./
           file: ./build/ubuntu/non-lts/18.10/Dockerfile
@@ -139,7 +135,7 @@ jobs:
         run: unzip artifact.zip -d .
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: ./
           file: ./build/ubuntu/non-lts/19.04/Dockerfile
@@ -167,7 +163,7 @@ jobs:
         run: unzip artifact.zip -d .
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: ./
           file: ./build/ubuntu/non-lts/19.10/Dockerfile
@@ -195,7 +191,7 @@ jobs:
         run: unzip artifact.zip -d .
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: ./
           file: ./build/ubuntu/non-lts/20.10/Dockerfile
@@ -223,7 +219,7 @@ jobs:
         run: unzip artifact.zip -d .
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: ./
           file: ./build/ubuntu/non-lts/21.04/Dockerfile
@@ -251,7 +247,7 @@ jobs:
         run: unzip artifact.zip -d .
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: ./
           file: ./build/ubuntu/non-lts/22.10/Dockerfile
@@ -279,7 +275,7 @@ jobs:
         run: unzip artifact.zip -d .
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: ./
           file: ./build/ubuntu/non-lts/23.04/Dockerfile
@@ -307,7 +303,7 @@ jobs:
         run: unzip artifact.zip -d .
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: ./
           file: ./build/ubuntu/non-lts/23.10/Dockerfile
