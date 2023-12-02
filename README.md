@@ -1,6 +1,6 @@
 # pwn-env-docker
 
-快速搭建调试 pwn 题的 docker 环境。
+一键搭建调试 pwn 题的 docker 环境。
 
 题目放在 `./challenge` 目录中，通过 docker-compose 启动时，该目录会被映射到容器中的 `/challenge` 目录。
 
@@ -15,7 +15,14 @@ git clone --recursive https://github.com/the-soloist/pwn-env-docker
 ### 安装依赖
 
 ```sh
+cd /path/to/pwn-env-docker
 bash ./setup.sh
+```
+
+### 更新工具
+
+```sh
+git pull && bash ./setup.sh
 ```
 
 ### 启动/关闭容器
@@ -23,25 +30,41 @@ bash ./setup.sh
 本项目提供了两种构建方式：
 
 1. 本地构建
-2. 拉取 docker hub 镜像构建（通过 github 自动上传，节约 build 时间）
+2. 拉取 docker hub 镜像构建
 
-#### 通过 docker hub 镜像构建
+#### Docker Hub 镜像构建
 
-docker hub 中仅上传了几个常用的版本，具体请查看 [docker-compose.yml](./docker-compose.yml)，其他版本请通过 docker-compose-dev.yml 进行构建
+~~docker hub 中仅上传了几个常用的版本~~（目前已上传[docker-compose.yml](./docker-compose.yml)里的所有版本）
 
-由于部分插件是使用 volumes 进行映射的，所以拉取镜像前也需要执行 `setup.sh` 脚本安装依赖
+由于部分插件是使用 volumes 进行映射的，所以拉取镜像前需要执行 `setup.sh` 脚本安装依赖
 
 ```sh
-docker-compose up -d <service-name>
+docker compose up -d <service-name>
 ```
 
 #### 本地构建
 
 ```sh
-docker-compose -f docker-compose-dev.yml up -d <service-name>
+docker compose -f docker-compose-dev.yml up -d <service-name>
 ```
 
-### 容器环境信息
+#### 更新容器
+
+更新 docker hub 镜像
+
+```sh
+docker compose pull <service-name>
+```
+
+本地构建可以使用 build 命令
+
+```sh
+docker compose -f docker-compose-dev.yml build <service-name>
+```
+
+### 容器信息
+
+#### 系统信息
 
 | 镜像                 | 系统版本     | libc 版本 | ssh 端口映射 | xinetd 端口映射 |
 | -------------------- | ------------ | --------- | ------------ | --------------- |
@@ -60,14 +83,25 @@ docker-compose -f docker-compose-dev.yml up -d <service-name>
 | pwn-env/ubuntu-23.04 | Ubuntu 23.04 | 2.37      | 22230 -> 22  | 62304 -> 8888   |
 | pwn-env/ubuntu-23.10 | Ubuntu 23.10 | 2.38      | 22231 -> 22  | 62310 -> 8888   |
 
-### ssh 登录
+#### compose volumes 映射
 
-默认容器没有设置 root 的密码，只能通过密钥登录
+| 宿主机路径  | 容器路径      | 备注                 |
+| ----------- | ------------- | -------------------- |
+| ./challenge | /challenge    | CTF 题目路径         |
+| ./config    | /root/.config | 配置文件路径         |
+| ./deps      | /deps         | 自定义工具的依赖路径 |
+| ./ssh       | /root/.ssh    | SSH 密钥路径         |
+
+### 配置容器
+
+#### ssh 登录
+
+SSH 配置中已经打开了`PermitRootLogin`，由于没有设置密码，所以默认只能通过密钥登录
 
 ```sh
 ssh-keygen -b 4096
 docker cp $HOME/.ssh/id_rsa.pub <container-id>:/root/.ssh/authorized_keys
-ssh root@127.0.0.1 -p <port>
+ssh root@<ip> -p <port>
 ```
 
 或者将本地的 key 复制到容器中，用于远程连接
@@ -78,7 +112,11 @@ docker cp $HOME/.ssh/authorized_keys <container-id>:/root/.ssh/authorized_keys
 
 如果是通过 docker-compose 启动，也可以修改 ./ssh 目录下的 authorized_keys 文件
 
-### 启动 xinetd
+```sh
+vim ./ssh/authorized_keys
+```
+
+#### 启动 xinetd
 
 ```sh
 cd /root/scripts/xinetd
@@ -86,35 +124,43 @@ vim xinetd.conf
 bash ./xinetd.sh
 ```
 
-## 工具包
+## 容器默认配置
 
-- python3、pip3
-- gdb、one_gadget、seccomp-tools
-- vim、tmux、socat
+### 用户组
+
+- pwn（用于模拟题目环境）
+- root
+
+### 工具包
+
+部分非 LTS 版本由于存在 bug 可能未安装某些工具
+
+- python3、pip3、ruby
+- gdb、socat、ssh server
+- wget、curl、vim、tmux
+- one_gadget、seccomp-tools
 - glibc 源码（位于 `/root/files/glibc-<version>`）
+- 部分常用依赖
 
 常用工具：
 
 - https://github.com/matrix1001/glibc-all-in-one
 - https://github.com/lieanu/LibcSearcher
+- https://github.com/NixOS/patchelf
 
-## 默认配置
+### 工具默认配置
 
+- python
+  - 已安装：angr、gmpy2、pwntools、pycryptodome、z3 等（包含常用 python 库）
+  - pip 默认源：https://pypi.tuna.tsinghua.edu.cn/simple
 - gdb
-  - 插件：peda、gef、pwndbg、Pwngdb
-  - 插件对应启动命令：gdb-gef、gdb-peda、gdb-pwndbg
+  - 默认加载插件：Pwngdb
+  - 手动加载插件：peda、gef、pwndbg
+    - 对应启动命令：gdb-peda、gdb-gef、gdb-pwndbg
 - tmux
-  - 插件：
-    - tmux-mem-cpu-load
-    - tmux-prefix-highlight
-    - tmux-sensible
-    - tmux-sidebar
-    - tmux-yank
-    - tpm
+  - 插件：tmux-mem-cpu-load、tmux-prefix-highlight、tmux-sensible、tmux-sidebar、tmux-yank、tpm
   - 配置：
     - 默认 prefix 为 C-x
-- pip
-  - 默认源：https://pypi.tuna.tsinghua.edu.cn/simple
 - gem
   - 默认源：https://gems.ruby-china.com
 - apt
