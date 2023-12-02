@@ -53,16 +53,16 @@ RUN dpkg --add-architecture i386
 RUN apt-get update && \
     apt-get install -y gcc g++ make python3 python3-pip python3-full ruby ruby-dev build-essential && \
     apt-get install -y libc6-dbg libc6-dbg:i386 libseccomp-dev libgmp-dev libmpfr-dev libmpc-dev libssl-dev libffi-dev && \
-    apt-get install -y gdb openssh-server git vim tmux && \
-    apt-get install -y socat net-tools iputils-ping wget curl
+    apt-get install -y gdb socat openssh-server net-tools iputils-ping && \
+    apt-get install -y git vim tmux wget curl
 
 # install pwn tools
 RUN mv /usr/lib/python3.11/EXTERNALLY-MANAGED /usr/lib/python3.11/EXTERNALLY-MANAGED.bak
 RUN pip3 install pip --upgrade
 RUN pip3 install prettytable colorama loguru tqdm && \
-    pip3 install websocket-client psutil requests redis && \
+    pip3 install ipdb websocket-client psutil requests redis && \
     pip3 install gmpy2 pycryptodome && \
-    pip3 install ipdb z3-solver angr pwntools
+    pip3 install z3-solver angr pwntools
 
 RUN gem sources --add https://gems.ruby-china.com && \
     gem install one_gadget && \

@@ -53,16 +53,16 @@ RUN dpkg --add-architecture i386
 RUN apt-get update && \
     apt-get install -y gcc g++ make python3 python3-pip ruby ruby-dev build-essential && \
     apt-get install -y libc6-dbg libc6-dbg:i386 libseccomp-dev libgmp-dev libmpfr-dev libmpc-dev libssl-dev libffi-dev && \
-    apt-get install -y gdb openssh-server git vim tmux && \
-    apt-get install -y socat net-tools iputils-ping wget curl
+    apt-get install -y gdb socat openssh-server net-tools iputils-ping && \
+    apt-get install -y git vim tmux wget curl
 
 # install pwn tools
 RUN pip3 install pip==20.3.4
 # angr need python > 3.6
 RUN pip3 install prettytable colorama loguru tqdm && \
-    pip3 install websocket-client psutil requests redis && \
+    pip3 install ipdb websocket-client psutil requests redis && \
     pip3 install gmpy2 pycryptodome && \
-    pip3 install ipdb z3-solver pwntools
+    pip3 install z3-solver pwntools
 
 RUN gem sources --add https://gems.ruby-china.com && \
     gem install bindata -v 2.4.14 && \
