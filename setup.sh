@@ -8,7 +8,7 @@ function sync-git-repo() {
         path=$(basename "$url")
     fi
 
-    echo "sync '$url' -> '$path'"
+    echo ">>> sync '$url' -> '$path'"
 
     if [ -d "$path/.git" ]; then
         pushd "$path" >/dev/null || return 0
@@ -21,34 +21,38 @@ function sync-git-repo() {
     printf "\n"
 }
 
-# init
-mkdir ./ssh
+### init ###
+
+mkdir -p ./ssh
 mkdir -p ./config/tmux/plugins
 mkdir -p ./deps/python-package
 mkdir -p ./docker/tools/gdb/plugins
 echo "REPLACE THIS FILE" >./ssh/authorized_keys
 
-# download python package
+### download ###
+
+# @ python package
 pushd ./deps/python-package >/dev/null
 sync-git-repo https://github.com/the-soloist/pwn-toolkit pwnkit
 popd >/dev/null
 
-# download tools
+# @ tools
 pushd ./docker/tools/ >/dev/null
 sync-git-repo https://github.com/matrix1001/glibc-all-in-one
 sync-git-repo https://github.com/niklasb/libc-database
 sync-git-repo https://github.com/NixOS/patchelf
 popd >/dev/null
 
-# download gdb plugins
+# @ gdb plugins
 pushd ./docker/tools/gdb/plugins/ >/dev/null
+[ -e "./gef.py" ] && rm ./gef.py
 curl -C - https://raw.githubusercontent.com/hugsy/gef/master/gef.py -o gef.py
 sync-git-repo https://github.com/pwndbg/pwndbg
 sync-git-repo https://github.com/longld/peda
 sync-git-repo https://github.com/scwuaptx/Pwngdb
 popd
 
-# download tmux plugins
+# @ tmux plugins
 pushd ./config/tmux/plugins/ >/dev/null
 sync-git-repo https://github.com/thewtex/tmux-mem-cpu-load
 sync-git-repo https://github.com/tmux-plugins/tmux-prefix-highlight
@@ -56,8 +60,18 @@ sync-git-repo https://github.com/tmux-plugins/tmux-sensible
 sync-git-repo https://github.com/tmux-plugins/tmux-sidebar
 sync-git-repo https://github.com/tmux-plugins/tmux-yank
 sync-git-repo https://github.com/tmux-plugins/tpm
-
-cd tmux-mem-cpu-load
-cmake .
-make -j16
 popd >/dev/null
+
+### compile ###
+
+# @ tmux-mem-cpu-load
+echo ">>> compiling tmux-mem-cpu-load ..."
+pushd ./config/tmux/plugins/tmux-mem-cpu-load >/dev/null
+[ -d "./build" ] && rm -rf ./build
+[ -e "./tmux-mem-cpu-load" ] && rm ./tmux-mem-cpu-load
+mkdir ./build && cd ./build
+cmake -DCMAKE_CXX_FLAGS="-static" ..
+make -j16
+mv ./tmux-mem-cpu-load ../
+popd >/dev/null
+printf "\n"
