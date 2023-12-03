@@ -32,7 +32,7 @@ TEMPLATE_YAML = """
 
 TEMPLATE_YAML_DEV = """
   ubuntu-{version}:
-    image: pwn-env/ubuntu-{version}
+    image: pwn-env-dev:ubuntu-{version}
     container_name: pwn-env_ubuntu-{version}
     build:
       context: ./
