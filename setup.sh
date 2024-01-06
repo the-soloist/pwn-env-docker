@@ -25,6 +25,7 @@ function sync-git-repo() {
 
 mkdir -p ./ssh
 mkdir -p ./config/tmux/plugins
+mkdir -p ./config/tmux/themes
 mkdir -p ./deps/python-package
 mkdir -p ./docker/tools/gdb/plugins
 echo "REPLACE THIS FILE" >./ssh/authorized_keys
@@ -62,16 +63,17 @@ sync-git-repo https://github.com/tmux-plugins/tmux-yank
 sync-git-repo https://github.com/tmux-plugins/tpm
 popd >/dev/null
 
+pushd ./config/tmux/themes/ >/dev/null
+sync-git-repo https://github.com/dracula/tmux tmux-dracula
+popd >/dev/null
+
 ### compile ###
 
 # @ tmux-mem-cpu-load
 echo ">>> compiling tmux-mem-cpu-load ..."
 pushd ./config/tmux/plugins/tmux-mem-cpu-load >/dev/null
-[ -d "./build" ] && rm -rf ./build
 [ -e "./tmux-mem-cpu-load" ] && rm ./tmux-mem-cpu-load
-mkdir ./build && cd ./build
-cmake -DCMAKE_CXX_FLAGS="-static" ..
+cmake -DCMAKE_CXX_FLAGS="-static" .
 make -j16
-mv ./tmux-mem-cpu-load ../
 popd >/dev/null
 printf "\n"

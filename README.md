@@ -4,6 +4,8 @@
 
 题目放在 `./challenge` 目录中，通过 docker-compose 启动时，该目录会被映射到容器中的 `/challenge` 目录。
 
+不同容器之间共享工作目录，方便切换环境。
+
 ## 使用说明
 
 ### 下载仓库
@@ -94,7 +96,7 @@ docker compose -f docker-compose-dev.yml build <service-name>
 
 ### 配置容器
 
-#### ssh 登录
+#### SSH 登录
 
 SSH 配置中已经打开了`PermitRootLogin`，由于没有设置密码，所以默认只能通过密钥登录
 
@@ -116,7 +118,7 @@ docker cp $HOME/.ssh/authorized_keys <container-id>:/root/.ssh/authorized_keys
 vim ./ssh/authorized_keys
 ```
 
-#### 启动 xinetd
+#### 模拟题目环境
 
 ```sh
 cd /root/scripts/xinetd
@@ -159,6 +161,8 @@ bash ./xinetd.sh
     - 对应启动命令：gdb-peda、gdb-gef、gdb-pwndbg
 - tmux
   - 插件：tmux-mem-cpu-load、tmux-prefix-highlight、tmux-sensible、tmux-sidebar、tmux-yank、tpm
+  - 主题：（需要手动修改启动参数）
+    - 添加 [dracula](https://github.com/dracula/tmux) 主题配置
   - 配置：
     - 默认 prefix 为 C-x
 - gem
