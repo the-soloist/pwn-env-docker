@@ -80,7 +80,7 @@ docker compose -f docker-compose-dev.yml build <service-name>
 | th3s/pwn-env:ubuntu-20.04 | Ubuntu 20.04 | 2.31      | 22004 -> 22  | 62004 -> 8888   |
 | th3s/pwn-env:ubuntu-20.10 | Ubuntu 20.10 | 2.32      | 22010 -> 22  | 62010 -> 8888   |
 | th3s/pwn-env:ubuntu-21.04 | Ubuntu 21.04 | 2.33      | 22104 -> 22  | 62104 -> 8888   |
-| th3s/pwn-env:ubuntu-22.04 | Ubuntu 22.04 | 2.34      | 22204 -> 22  | 62204 -> 8888   |
+| th3s/pwn-env:ubuntu-22.04 | Ubuntu 22.04 | 2.35      | 22204 -> 22  | 62204 -> 8888   |
 | th3s/pwn-env:ubuntu-22.10 | Ubuntu 22.10 | 2.36      | 22210 -> 22  | 62210 -> 8888   |
 | th3s/pwn-env:ubuntu-23.04 | Ubuntu 23.04 | 2.37      | 22304 -> 22  | 62304 -> 8888   |
 | th3s/pwn-env:ubuntu-23.10 | Ubuntu 23.10 | 2.38      | 22310 -> 22  | 62310 -> 8888   |
