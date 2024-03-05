@@ -8,6 +8,7 @@ services:
       - ./challenge:/challenge
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
       - '21604:22'
@@ -23,6 +24,7 @@ services:
       - ./challenge:/challenge
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
       - '21704:22'
@@ -38,6 +40,7 @@ services:
       - ./challenge:/challenge
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
       - '21710:22'
@@ -53,6 +56,7 @@ services:
       - ./challenge:/challenge
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
       - '21804:22'
@@ -68,6 +72,7 @@ services:
       - ./challenge:/challenge
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
       - '21810:22'
@@ -83,6 +88,7 @@ services:
       - ./challenge:/challenge
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
       - '21904:22'
@@ -98,6 +104,7 @@ services:
       - ./challenge:/challenge
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
       - '21910:22'
@@ -113,6 +120,7 @@ services:
       - ./challenge:/challenge
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
       - '22004:22'
@@ -128,6 +136,7 @@ services:
       - ./challenge:/challenge
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
       - '22010:22'
@@ -143,6 +152,7 @@ services:
       - ./challenge:/challenge
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
       - '22104:22'
@@ -158,6 +168,7 @@ services:
       - ./challenge:/challenge
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
       - '22204:22'
@@ -173,6 +184,7 @@ services:
       - ./challenge:/challenge
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
       - '22210:22'
@@ -188,6 +200,7 @@ services:
       - ./challenge:/challenge
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
       - '22304:22'
@@ -203,6 +216,7 @@ services:
       - ./challenge:/challenge
       - ./config:/root/.config
       - ./deps:/deps
+      - ./share:/share
       - ./ssh:/root/.ssh
     ports:
       - '22310:22'

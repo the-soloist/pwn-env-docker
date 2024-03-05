@@ -23,11 +23,12 @@ function sync-git-repo() {
 
 ### init ###
 
-mkdir -p ./ssh
 mkdir -p ./config/tmux/plugins
 mkdir -p ./config/tmux/themes
 mkdir -p ./deps/python-package
 mkdir -p ./docker/tools/gdb/plugins
+mkdir -p ./share
+mkdir -p ./ssh
 echo "REPLACE THIS FILE" >./ssh/authorized_keys
 
 ### download ###
