@@ -93,7 +93,7 @@ RUN rm -rf /root/.cache && \
     rm -rf /root/.pip && \
     rm -rf /root/files/glibc_* && \
     rm -rf /tmp/scripts
-    RUN apt-get clean
+RUN apt-get clean
 
 
 ### end ###
