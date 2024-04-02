@@ -18,6 +18,8 @@ services:
     expose:
       - '22'
       - '8888'
+    networks:
+      - devnet
 
   ubuntu-17.04:
     container_name: pwn-env-dev_ubuntu-17.04
@@ -36,6 +38,8 @@ services:
     expose:
       - '22'
       - '8888'
+    networks:
+      - devnet
 
   ubuntu-17.10:
     container_name: pwn-env-dev_ubuntu-17.10
@@ -54,6 +58,8 @@ services:
     expose:
       - '22'
       - '8888'
+    networks:
+      - devnet
 
   ubuntu-18.04:
     container_name: pwn-env-dev_ubuntu-18.04
@@ -72,6 +78,8 @@ services:
     expose:
       - '22'
       - '8888'
+    networks:
+      - devnet
 
   ubuntu-18.10:
     container_name: pwn-env-dev_ubuntu-18.10
@@ -90,6 +98,8 @@ services:
     expose:
       - '22'
       - '8888'
+    networks:
+      - devnet
 
   ubuntu-19.04:
     container_name: pwn-env-dev_ubuntu-19.04
@@ -108,6 +118,8 @@ services:
     expose:
       - '22'
       - '8888'
+    networks:
+      - devnet
 
   ubuntu-19.10:
     container_name: pwn-env-dev_ubuntu-19.10
@@ -126,6 +138,8 @@ services:
     expose:
       - '22'
       - '8888'
+    networks:
+      - devnet
 
   ubuntu-20.04:
     container_name: pwn-env-dev_ubuntu-20.04
@@ -144,6 +158,8 @@ services:
     expose:
       - '22'
       - '8888'
+    networks:
+      - devnet
 
   ubuntu-20.10:
     container_name: pwn-env-dev_ubuntu-20.10
@@ -162,6 +178,8 @@ services:
     expose:
       - '22'
       - '8888'
+    networks:
+      - devnet
 
   ubuntu-21.04:
     container_name: pwn-env-dev_ubuntu-21.04
@@ -180,6 +198,8 @@ services:
     expose:
       - '22'
       - '8888'
+    networks:
+      - devnet
 
   ubuntu-22.04:
     container_name: pwn-env-dev_ubuntu-22.04
@@ -198,6 +218,8 @@ services:
     expose:
       - '22'
       - '8888'
+    networks:
+      - devnet
 
   ubuntu-22.10:
     container_name: pwn-env-dev_ubuntu-22.10
@@ -216,6 +238,8 @@ services:
     expose:
       - '22'
       - '8888'
+    networks:
+      - devnet
 
   ubuntu-23.04:
     container_name: pwn-env-dev_ubuntu-23.04
@@ -234,6 +258,8 @@ services:
     expose:
       - '22'
       - '8888'
+    networks:
+      - devnet
 
   ubuntu-23.10:
     container_name: pwn-env-dev_ubuntu-23.10
@@ -252,3 +278,9 @@ services:
     expose:
       - '22'
       - '8888'
+    networks:
+      - devnet
+
+networks:
+  devnet:
+    driver: bridge
