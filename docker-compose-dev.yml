@@ -2,7 +2,6 @@ version: '3'
 
 services:
   ubuntu-16.04:
-    image: pwn-env-dev:ubuntu-16.04
     container_name: pwn-env-dev_ubuntu-16.04
     build:
       context: ./
@@ -21,7 +20,6 @@ services:
       - '8888'
 
   ubuntu-17.04:
-    image: pwn-env-dev:ubuntu-17.04
     container_name: pwn-env-dev_ubuntu-17.04
     build:
       context: ./
@@ -40,7 +38,6 @@ services:
       - '8888'
 
   ubuntu-17.10:
-    image: pwn-env-dev:ubuntu-17.10
     container_name: pwn-env-dev_ubuntu-17.10
     build:
       context: ./
@@ -59,7 +56,6 @@ services:
       - '8888'
 
   ubuntu-18.04:
-    image: pwn-env-dev:ubuntu-18.04
     container_name: pwn-env-dev_ubuntu-18.04
     build:
       context: ./
@@ -78,7 +74,6 @@ services:
       - '8888'
 
   ubuntu-18.10:
-    image: pwn-env-dev:ubuntu-18.10
     container_name: pwn-env-dev_ubuntu-18.10
     build:
       context: ./
@@ -97,7 +92,6 @@ services:
       - '8888'
 
   ubuntu-19.04:
-    image: pwn-env-dev:ubuntu-19.04
     container_name: pwn-env-dev_ubuntu-19.04
     build:
       context: ./
@@ -116,7 +110,6 @@ services:
       - '8888'
 
   ubuntu-19.10:
-    image: pwn-env-dev:ubuntu-19.10
     container_name: pwn-env-dev_ubuntu-19.10
     build:
       context: ./
@@ -135,7 +128,6 @@ services:
       - '8888'
 
   ubuntu-20.04:
-    image: pwn-env-dev:ubuntu-20.04
     container_name: pwn-env-dev_ubuntu-20.04
     build:
       context: ./
@@ -154,7 +146,6 @@ services:
       - '8888'
 
   ubuntu-20.10:
-    image: pwn-env-dev:ubuntu-20.10
     container_name: pwn-env-dev_ubuntu-20.10
     build:
       context: ./
@@ -173,7 +164,6 @@ services:
       - '8888'
 
   ubuntu-21.04:
-    image: pwn-env-dev:ubuntu-21.04
     container_name: pwn-env-dev_ubuntu-21.04
     build:
       context: ./
@@ -192,7 +182,6 @@ services:
       - '8888'
 
   ubuntu-22.04:
-    image: pwn-env-dev:ubuntu-22.04
     container_name: pwn-env-dev_ubuntu-22.04
     build:
       context: ./
@@ -211,7 +200,6 @@ services:
       - '8888'
 
   ubuntu-22.10:
-    image: pwn-env-dev:ubuntu-22.10
     container_name: pwn-env-dev_ubuntu-22.10
     build:
       context: ./
@@ -230,7 +218,6 @@ services:
       - '8888'
 
   ubuntu-23.04:
-    image: pwn-env-dev:ubuntu-23.04
     container_name: pwn-env-dev_ubuntu-23.04
     build:
       context: ./
@@ -249,7 +236,6 @@ services:
       - '8888'
 
   ubuntu-23.10:
-    image: pwn-env-dev:ubuntu-23.10
     container_name: pwn-env-dev_ubuntu-23.10
     build:
       context: ./
