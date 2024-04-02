@@ -13,7 +13,7 @@ RUN apt-get update && apt-get -y dist-upgrade locales && \
 
 RUN locale-gen zh_CN.UTF-8
 ENV LANG zh_CN.UTF-8
-ENV LC_ALL zh_CN.UTF-8
+# ENV LC_ALL zh_CN.UTF-8
 
 
 ### config user env ###
