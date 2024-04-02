@@ -23,27 +23,14 @@ function sync-git-repo() {
 
 ### init ###
 
-mkdir -p ./config/tmux/plugins
-mkdir -p ./config/tmux/themes
+mkdir -p ./config/tmux/{plugins,themes}
 mkdir -p ./deps/python-package
 mkdir -p ./docker/tools/gdb/plugins
-mkdir -p ./share
+mkdir -p ./share/tools
 mkdir -p ./ssh
 echo "REPLACE THIS FILE" >./ssh/authorized_keys
 
-### download ###
-
-# @ python package
-pushd ./deps/python-package >/dev/null
-sync-git-repo https://github.com/the-soloist/pwn-toolkit pwnkit
-popd >/dev/null
-
-# @ tools
-pushd ./docker/tools/ >/dev/null
-sync-git-repo https://github.com/matrix1001/glibc-all-in-one
-sync-git-repo https://github.com/niklasb/libc-database
-sync-git-repo https://github.com/NixOS/patchelf
-popd >/dev/null
+### download(private) ###
 
 # @ gdb plugins
 pushd ./docker/tools/gdb/plugins/ >/dev/null
@@ -53,6 +40,8 @@ sync-git-repo https://github.com/pwndbg/pwndbg
 sync-git-repo https://github.com/longld/peda
 sync-git-repo https://github.com/scwuaptx/Pwngdb
 popd
+
+### download(shared) ###
 
 # @ tmux plugins
 pushd ./config/tmux/plugins/ >/dev/null
@@ -66,6 +55,18 @@ popd >/dev/null
 
 pushd ./config/tmux/themes/ >/dev/null
 sync-git-repo https://github.com/dracula/tmux tmux-dracula
+popd >/dev/null
+
+# @ python package
+pushd ./deps/python-package/ >/dev/null
+sync-git-repo https://github.com/the-soloist/pwn-toolkit pwnkit
+popd >/dev/null
+
+# @ tools
+pushd ./deps/tools/ >/dev/null
+sync-git-repo https://github.com/NixOS/patchelf
+sync-git-repo https://github.com/matrix1001/glibc-all-in-one
+sync-git-repo https://github.com/niklasb/libc-database
 popd >/dev/null
 
 ### compile ###
