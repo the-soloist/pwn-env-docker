@@ -1,10 +1,10 @@
-FROM ubuntu:18.10
+FROM ubuntu:14.04
 
 ENV TZ=Asia/Shanghai
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.ustc.edu.cn\/ubuntu-old-releases/g" /etc/apt/sources.list && \
-    sed -i "s/http:\/\/security.ubuntu.com/http:\/\/mirrors.ustc.edu.cn\/ubuntu-old-releases/g" /etc/apt/sources.list && \
+RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list && \
+    sed -i "s/http:\/\/security.ubuntu.com/http:\/\/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list && \
     sed -i "s/# deb-src/deb-src/g" /etc/apt/sources.list && \
     sed -i "s/^[^#].*archive\.canonical\.com*/#&/g" /etc/apt/sources.list
 
@@ -57,18 +57,20 @@ RUN apt-get update && \
     apt-get install -y git vim tmux wget curl
 
 # install pwn tools
-RUN pip3 install pip==21.3.1
+RUN pip3 install pip==20.3.4
+# angr need python > 3.6
 RUN pip3 install prettytable colorama loguru tqdm && \
     pip3 install ipdb websocket-client psutil requests redis && \
     pip3 install gmpy2 pycryptodome && \
-    pip3 install z3-solver angr pwntools
+    pip3 install z3-solver pwntools
 
 RUN gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/ && \
-    gem install one_gadget && \
-    gem install seccomp-tools -v 1.5.0
+    gem install bindata -v 2.4.14 && \
+    gem install one_gadget -v 1.7.3 && \
+    gem install seccomp-tools -v 1.3.0
 
 RUN cd /root/tools/gdb/plugins/pwndbg && \
-    git checkout -f 2022.08.30 && \
+    git checkout -f 2022.01.05 && \
     ./setup.sh
 
 RUN cp /root/tools/gdb/init/pwndbg.conf /root/.gdbinit

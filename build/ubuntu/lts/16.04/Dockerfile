@@ -64,7 +64,7 @@ RUN pip3 install prettytable colorama loguru tqdm && \
     pip3 install gmpy2 pycryptodome && \
     pip3 install z3-solver pwntools
 
-RUN gem sources --add https://gems.ruby-china.com && \
+RUN gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/ && \
     gem install bindata -v 2.4.14 && \
     gem install one_gadget -v 1.7.3 && \
     gem install seccomp-tools -v 1.3.0
