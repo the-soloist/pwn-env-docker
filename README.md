@@ -84,6 +84,7 @@ docker compose -f docker-compose-dev.yml build <service-name>
 | th3s/pwn-env:ubuntu-22.10 | Ubuntu 22.10 | 2.36      | 22210 -> 22  | 62210 -> 8888   |
 | th3s/pwn-env:ubuntu-23.04 | Ubuntu 23.04 | 2.37      | 22304 -> 22  | 62304 -> 8888   |
 | th3s/pwn-env:ubuntu-23.10 | Ubuntu 23.10 | 2.38      | 22310 -> 22  | 62310 -> 8888   |
+| th3s/pwn-env:ubuntu-24.04 | Ubuntu 23.10 | 2.39      | 22404 -> 22  | 62404 -> 8888   |
 
 #### compose volumes 映射
 
@@ -166,7 +167,7 @@ bash ./xinetd.sh
   - 配置：
     - 默认 prefix 为 C-x
 - gem
-  - 默认源：https://gems.ruby-china.com
+  - 默认源：https://mirrors.tuna.tsinghua.edu.cn/rubygems
 - apt
   - 默认源：http://mirrors.tuna.tsinghua.edu.cn
 

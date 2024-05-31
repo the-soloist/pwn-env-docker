@@ -281,6 +281,24 @@ services:
     networks:
       - devnet
 
+  ubuntu-24.04:
+    container_name: pwn-env-dev_ubuntu-24.04
+    build:
+      context: ./
+      dockerfile: ./build/ubuntu/lts/24.04/Dockerfile
+    volumes:
+      - ./challenge:/challenge
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./share:/share
+      - ./ssh:/root/.ssh
+    ports:
+      - '22404:22'
+      - '62404:8888'
+    expose:
+      - '22'
+      - '8888'
+
 networks:
   devnet:
     driver: bridge

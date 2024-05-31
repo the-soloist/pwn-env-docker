@@ -141,3 +141,31 @@ jobs:
           file: ./build/ubuntu/lts/22.04/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-22.04
+
+  build-ubuntu2404:
+    runs-on: ubuntu-latest
+    needs: [init-build-env]
+
+    steps:
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: env-artifact
+          path: .
+
+      - name: Decompress Artifact
+        run: unzip artifact.zip -d .
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./
+          file: ./build/ubuntu/lts/24.04/Dockerfile
+          push: true
+          tags: th3s/pwn-env:ubuntu-24.04
