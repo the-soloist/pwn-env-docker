@@ -24,7 +24,7 @@ function sync-git-repo() {
 ### init ###
 
 mkdir -p ./config/tmux/{plugins,themes}
-mkdir -p ./deps/python-package
+mkdir -p ./deps/{tools,scripts,python-package}
 mkdir -p ./docker/tools/gdb/plugins
 mkdir -p ./share/tools
 mkdir -p ./ssh
@@ -64,10 +64,14 @@ popd >/dev/null
 
 # @ tools
 pushd ./deps/tools/ >/dev/null
-sync-git-repo https://github.com/Ex-Origin/debug-server
 sync-git-repo https://github.com/matrix1001/glibc-all-in-one
 sync-git-repo https://github.com/niklasb/libc-database
 sync-git-repo https://github.com/NixOS/patchelf
+popd >/dev/null
+
+# @ scripts
+pushd ./deps/tools/ >/dev/null
+sync-git-repo https://github.com/Ex-Origin/debug-server
 popd >/dev/null
 
 ### compile ###
