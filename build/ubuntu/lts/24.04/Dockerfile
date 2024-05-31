@@ -56,9 +56,6 @@ RUN apt-get update && \
     apt-get install -y gdb gdbserver strace socat openssh-server net-tools iputils-ping && \
     apt-get install -y git vim tmux wget curl sshfs
 
-# temporary fix error: externally-managed-environment
-RUN mv /usr/lib/python3.12/EXTERNALLY-MANAGED /usr/lib/python3.12/EXTERNALLY-MANAGED.bak
-
 # install pwn tools
 RUN pip3 install pip --upgrade
 RUN pip3 install prettytable colorama loguru tqdm && \
