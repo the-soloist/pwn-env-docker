@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   ubuntu-16.04:
     container_name: pwn-env-dev_ubuntu-16.04

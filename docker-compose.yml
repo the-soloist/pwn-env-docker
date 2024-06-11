@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   ubuntu-16.04:
     image: th3s/pwn-env:ubuntu-16.04
