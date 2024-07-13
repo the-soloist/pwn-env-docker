@@ -60,7 +60,7 @@ RUN apt-get update && \
 RUN mv /usr/lib/python3.12/EXTERNALLY-MANAGED /usr/lib/python3.12/EXTERNALLY-MANAGED.bak
 
 # install pwn tools
-RUN pip3 install pip --upgrade
+RUN pip3 install pip --upgrade --ignore-installed
 RUN pip3 install prettytable colorama loguru tqdm && \
     pip3 install ipdb websocket-client psutil requests redis && \
     pip3 install gmpy2 pycryptodome && \
