@@ -16,6 +16,8 @@ git clone --recursive https://github.com/the-soloist/pwn-env-docker
 
 ### 安装依赖
 
+PS: 只在 root 下进行了测试，非root用户可能存在权限问题，如：[issue#3](https://github.com/the-soloist/pwn-env-docker/issues/3)
+
 ```sh
 cd /path/to/pwn-env-docker
 bash ./setup.sh
