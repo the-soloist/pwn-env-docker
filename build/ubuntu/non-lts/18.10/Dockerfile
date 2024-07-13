@@ -74,8 +74,8 @@ RUN cd /root/tools/gdb/plugins/pwndbg && \
 RUN cp /root/tools/gdb/init/pwndbg.conf /root/.gdbinit
 
 # install custom tools
-COPY ./docker/env/ /tmp/env/
-RUN bash /tmp/env/install.sh
+COPY ./docker/env/ /opt/env/
+RUN bash /opt/env/install.sh
 
 # download glibc source code
 RUN mkdir /root/files && cd /root/files && \
