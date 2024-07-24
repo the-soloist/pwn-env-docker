@@ -121,7 +121,7 @@ docker cp $HOME/.ssh/authorized_keys <container-id>:/root/.ssh/authorized_keys
 vim ./ssh/authorized_keys
 ```
 
-#### 模拟题目环境
+#### 部署题目环境
 
 ```sh
 cd /root/scripts/xinetd
@@ -133,7 +133,7 @@ bash ./xinetd.sh
 
 ### 用户组
 
-- pwn（用于模拟题目环境）
+- pwn（用于部署题目环境）
 - root
 
 ### 工具包
