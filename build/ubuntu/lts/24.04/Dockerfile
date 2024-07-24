@@ -4,9 +4,14 @@ ENV TZ=Asia/Shanghai
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list && \
-    sed -i "s/http:\/\/security.ubuntu.com/http:\/\/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list && \
-    sed -i "s/# deb-src/deb-src/g" /etc/apt/sources.list && \
-    sed -i "s/^[^#].*archive\.canonical\.com*/#&/g" /etc/apt/sources.list
+    cat <<EOF >> /etc/apt/sources.list.d/ubuntu.sources
+# deb source package
+Types: deb-src
+URIs: http://mirrors.tuna.tsinghua.edu.cn/ubuntu/
+Suites: noble noble-updates noble-security
+Components: main universe restricted multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg    
+EOF
 
 RUN apt-get update && apt-get -y dist-upgrade locales && \
     apt-get install -y tzdata lib32z1 xinetd tcpdump
