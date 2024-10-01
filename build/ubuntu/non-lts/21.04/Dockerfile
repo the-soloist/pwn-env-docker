@@ -68,6 +68,7 @@ RUN gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove ht
     gem install seccomp-tools
 
 RUN cd /root/tools/gdb/plugins/pwndbg && \
+    git checkout -f 2024.02.14 && \
     ./setup.sh
 
 RUN cp /root/tools/gdb/init/pwndbg.conf /root/.gdbinit
