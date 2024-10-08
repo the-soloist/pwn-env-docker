@@ -65,7 +65,7 @@ RUN pip3 install prettytable colorama loguru tqdm && \
 
 RUN gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/ && \
     gem install elftools -v 1.2.0 && \
-    gem install one_gadget && \
+    gem install one_gadget -v 1.9.0 && \
     gem install seccomp-tools
 
 RUN cd /root/tools/gdb/plugins/pwndbg && \
