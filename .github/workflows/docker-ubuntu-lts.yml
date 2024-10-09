@@ -25,7 +25,7 @@ jobs:
         run: zip -r /tmp/artifact.zip . -x ".git/*"
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: env-artifact
           path: /tmp/artifact.zip
