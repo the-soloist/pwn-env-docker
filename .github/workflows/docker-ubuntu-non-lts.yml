@@ -18,6 +18,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Get All Changed Files
+        id: step2
+        run: |
+          git fetch --depth=2
+          git diff --name-only "HEAD^" > /tmp/changed_files.txt
+          echo "changed_files=$(paste -sd "," /tmp/changed_files.txt)" >> "$GITHUB_OUTPUT"
+
       - name: Install Dependencies
         run: bash ./setup.sh
 
@@ -30,7 +37,13 @@ jobs:
           name: env-artifact
           path: /tmp/artifact.zip
 
+    outputs:
+      changed-files: ${{ steps.step2.outputs.changed_files }}
+
   build-ubuntu1704:
+    if: |
+      github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' ||
+      contains(needs.init-build-env.outputs.changed-files, 'ubuntu/lts/17.04')
     runs-on: ubuntu-latest
     needs: [init-build-env]
 
@@ -42,7 +55,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: env-artifact
           path: .
@@ -59,6 +72,9 @@ jobs:
           tags: th3s/pwn-env:ubuntu-17.04
 
   build-ubuntu1710:
+    if: |
+      github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' ||
+      contains(needs.init-build-env.outputs.changed-files, 'ubuntu/lts/17.10')
     runs-on: ubuntu-latest
     needs: [init-build-env]
 
@@ -70,7 +86,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: env-artifact
           path: .
@@ -87,6 +103,9 @@ jobs:
           tags: th3s/pwn-env:ubuntu-17.10
 
   build-ubuntu1810:
+    if: |
+      github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' ||
+      contains(needs.init-build-env.outputs.changed-files, 'ubuntu/lts/18.10')
     runs-on: ubuntu-latest
     needs: [init-build-env]
 
@@ -98,7 +117,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: env-artifact
           path: .
@@ -115,6 +134,9 @@ jobs:
           tags: th3s/pwn-env:ubuntu-18.10
 
   build-ubuntu1904:
+    if: |
+      github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' ||
+      contains(needs.init-build-env.outputs.changed-files, 'ubuntu/lts/19.04')
     runs-on: ubuntu-latest
     needs: [init-build-env]
 
@@ -126,7 +148,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: env-artifact
           path: .
@@ -143,6 +165,9 @@ jobs:
           tags: th3s/pwn-env:ubuntu-19.04
 
   build-ubuntu1910:
+    if: |
+      github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' ||
+      contains(needs.init-build-env.outputs.changed-files, 'ubuntu/lts/19.10')
     runs-on: ubuntu-latest
     needs: [init-build-env]
 
@@ -154,7 +179,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: env-artifact
           path: .
@@ -171,6 +196,9 @@ jobs:
           tags: th3s/pwn-env:ubuntu-19.10
 
   build-ubuntu2010:
+    if: |
+      github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' ||
+      contains(needs.init-build-env.outputs.changed-files, 'ubuntu/lts/20.10')
     runs-on: ubuntu-latest
     needs: [init-build-env]
 
@@ -182,7 +210,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: env-artifact
           path: .
@@ -199,6 +227,9 @@ jobs:
           tags: th3s/pwn-env:ubuntu-20.10
 
   build-ubuntu2104:
+    if: |
+      github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' ||
+      contains(needs.init-build-env.outputs.changed-files, 'ubuntu/lts/21.04')
     runs-on: ubuntu-latest
     needs: [init-build-env]
 
@@ -210,7 +241,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: env-artifact
           path: .
@@ -227,6 +258,9 @@ jobs:
           tags: th3s/pwn-env:ubuntu-21.04
 
   build-ubuntu2210:
+    if: |
+      github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' ||
+      contains(needs.init-build-env.outputs.changed-files, 'ubuntu/lts/22.10')
     runs-on: ubuntu-latest
     needs: [init-build-env]
 
@@ -238,7 +272,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: env-artifact
           path: .
@@ -255,6 +289,9 @@ jobs:
           tags: th3s/pwn-env:ubuntu-22.10
 
   build-ubuntu2304:
+    if: |
+      github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' ||
+      contains(needs.init-build-env.outputs.changed-files, 'ubuntu/lts/23.04')
     runs-on: ubuntu-latest
     needs: [init-build-env]
 
@@ -266,7 +303,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: env-artifact
           path: .
@@ -283,6 +320,9 @@ jobs:
           tags: th3s/pwn-env:ubuntu-23.04
 
   build-ubuntu2310:
+    if: |
+      github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' ||
+      contains(needs.init-build-env.outputs.changed-files, 'ubuntu/lts/23.10')
     runs-on: ubuntu-latest
     needs: [init-build-env]
 
@@ -294,7 +334,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: env-artifact
           path: .
