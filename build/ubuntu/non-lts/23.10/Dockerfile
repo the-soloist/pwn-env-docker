@@ -9,7 +9,8 @@ RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.ustc.edu.cn/g" /etc/a
     sed -i "s/^[^#].*archive\.canonical\.com*/#&/g" /etc/apt/sources.list
 
 RUN apt-get update && apt-get -y dist-upgrade locales && \
-    apt-get install -y tzdata lib32z1 xinetd tcpdump
+    apt-get install -y tzdata lib32z1 xinetd tcpdump && \
+    apt-get install sudo
 
 RUN locale-gen zh_CN.UTF-8
 ENV LANG zh_CN.UTF-8
@@ -44,10 +45,11 @@ RUN chown -R root:pwn /home/pwn && \
 ### config root env ###
 WORKDIR /root
 
-COPY ./docker/scripts/ /root/scripts/
-COPY ./docker/tools/ /root/tools/
 COPY ./config/bashrc /root/.bashrc
 COPY ./config/pip /root/.pip
+COPY ./docker/scripts/ /root/scripts/
+COPY ./docker/tools/ /root/tools/
+COPY ./docker/env/ /opt/env/
 
 RUN dpkg --add-architecture i386
 RUN apt-get update && \
@@ -76,7 +78,6 @@ RUN cd /root/tools/gdb/plugins/pwndbg && \
 RUN cp /root/tools/gdb/init/pwndbg.conf /root/.gdbinit
 
 # install custom tools
-COPY ./docker/env/ /opt/env/
 RUN bash /opt/env/install.sh
 
 # download glibc source code

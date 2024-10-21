@@ -9,7 +9,8 @@ RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.tuna.tsinghua.edu.cn/
     sed -i "s/^[^#].*archive\.canonical\.com*/#&/g" /etc/apt/sources.list
 
 RUN apt-get update && apt-get -y dist-upgrade locales && \
-    apt-get install -y tzdata lib32z1 xinetd tcpdump
+    apt-get install -y tzdata lib32z1 xinetd tcpdump && \
+    apt-get install sudo
 
 RUN locale-gen zh_CN.UTF-8
 ENV LANG zh_CN.UTF-8
@@ -44,10 +45,11 @@ RUN chown -R root:pwn /home/pwn && \
 ### config root env ###
 WORKDIR /root
 
-COPY ./docker/scripts/ /root/scripts/
-COPY ./docker/tools/ /root/tools/
 COPY ./config/bashrc /root/.bashrc
 COPY ./config/pip /root/.pip
+COPY ./docker/scripts/ /root/scripts/
+COPY ./docker/tools/ /root/tools/
+COPY ./docker/env/ /opt/env/
 
 RUN dpkg --add-architecture i386
 RUN apt-get update && \
@@ -55,6 +57,10 @@ RUN apt-get update && \
     apt-get install -y libc6-dbg libc6-dbg:i386 libseccomp-dev libgmp-dev libmpfr-dev libmpc-dev libssl-dev libffi-dev && \
     apt-get install -y gdb gdbserver strace socat openssh-server net-tools iputils-ping && \
     apt-get install -y git vim tmux wget curl sshfs
+
+# install custom tools
+RUN bash /opt/env/install.sh
+RUN bash /opt/env/pyenv/install.sh
 
 # install pwn tools
 RUN pip3 install pip --upgrade
@@ -71,10 +77,6 @@ RUN cd /root/tools/gdb/plugins/pwndbg && \
     ./setup.sh
 
 RUN cp /root/tools/gdb/init/pwndbg.conf /root/.gdbinit
-
-# install custom tools
-COPY ./docker/env/ /opt/env/
-RUN bash /opt/env/install.sh
 
 # download glibc source code
 RUN mkdir /root/files && cd /root/files && \

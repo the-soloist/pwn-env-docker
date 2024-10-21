@@ -5,7 +5,7 @@ function print_help() {
     echo "Usage:"
     echo "  $0"
     echo "  '-f': force update images"
-    exit 0
+    exit 1
 }
 
 function force_update() {
@@ -18,7 +18,7 @@ function force_update() {
 
 docker compose down
 
-while getopts "hf" OPT; do
+while getopts "fh" OPT; do
     case $OPT in
     f) force_update ;;
     h) print_help ;;

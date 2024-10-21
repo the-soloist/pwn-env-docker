@@ -111,6 +111,10 @@ export XDG_DATA_HOME="$HOME/.local/share"
 # === env ===
 # ===========
 
+# @ pyenv
+export PYENV_ROOT="/opt/pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
 # @ python
 export PIP_CONFIG_FILE="$XDG_CONFIG_HOME/pip/pip.conf"
 export PYTHONPATH="$PYTHONPATH:/deps/python-package"
@@ -135,6 +139,16 @@ alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 alias gdb-gef="cp $HOME/tools/gdb/init/gef.conf ~/.gdbinit; gdb"
 alias gdb-peda="cp $HOME/tools/gdb/init/peda.conf ~/.gdbinit; gdb"
 alias gdb-pwndbg="cp $HOME/tools/gdb/init/pwndbg.conf ~/.gdbinit; gdb"
+
+# =======================
+# === useful function ===
+# =======================l
+
+function pyenv() {
+    unset -f pyenv
+    eval "$(command pyenv init -)"
+    pyenv $@
+}
 
 # ==========================
 # === before shell start ===

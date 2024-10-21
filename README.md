@@ -16,7 +16,7 @@ git clone --recursive https://github.com/the-soloist/pwn-env-docker
 
 ### 安装依赖
 
-PS: 只在 root 下进行了测试，非root用户可能存在权限问题，如：[issue#3](https://github.com/the-soloist/pwn-env-docker/issues/3)
+PS: 只在 root 下进行了测试，非 root 用户可能存在权限问题，如：[issue#3](https://github.com/the-soloist/pwn-env-docker/issues/3)
 
 ```sh
 cd /path/to/pwn-env-docker
@@ -158,6 +158,7 @@ bash ./xinetd.sh
 - python
   - 已安装：angr、gmpy2、pwntools、pycryptodome、z3 等（包含常用 python 库）
   - pip 默认源：https://pypi.tuna.tsinghua.edu.cn/simple
+  - 部分发行版 python 版本过低，所以将工具安装在了 pyenv 环境中（ubutnu16.04、ubutnu18.04、ubutnu20.04）
 - gdb
   - 默认加载插件：Pwngdb
   - 手动加载插件：peda、gef、pwndbg

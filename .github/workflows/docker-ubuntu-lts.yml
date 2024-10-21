@@ -24,6 +24,7 @@ jobs:
           git fetch --depth=2
           git diff --name-only "HEAD^" > /tmp/changed_files.txt
           echo "changed_files=$(paste -sd "," /tmp/changed_files.txt)" >> "$GITHUB_OUTPUT"
+          cat /tmp/changed_files.txt
 
       - name: Install Dependencies
         run: bash ./setup.sh

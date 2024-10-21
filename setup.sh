@@ -43,7 +43,7 @@ popd
 
 ### download(shared) ###
 
-# @ tmux plugins
+# @ config/tmux
 pushd ./config/tmux/plugins/ >/dev/null
 sync-git-repo https://github.com/thewtex/tmux-mem-cpu-load
 sync-git-repo https://github.com/tmux-plugins/tmux-prefix-highlight
@@ -57,21 +57,22 @@ pushd ./config/tmux/themes/ >/dev/null
 sync-git-repo https://github.com/dracula/tmux tmux-dracula
 popd >/dev/null
 
-# @ python package
+# @ deps/python-package
 pushd ./deps/python-package/ >/dev/null
 sync-git-repo https://github.com/the-soloist/pwn-toolkit pwnkit
 popd >/dev/null
 
-# @ tools
+# @ deps/tools
 pushd ./deps/tools/ >/dev/null
 sync-git-repo https://github.com/matrix1001/glibc-all-in-one
 sync-git-repo https://github.com/niklasb/libc-database
 sync-git-repo https://github.com/NixOS/patchelf
+sync-git-repo https://github.com/Ex-Origin/debug-server
 popd >/dev/null
 
-# @ scripts
-pushd ./deps/tools/ >/dev/null
-sync-git-repo https://github.com/Ex-Origin/debug-server
+# @ docker/tools
+pushd ./docker/tools/ >/dev/null
+sync-git-repo https://github.com/pyenv/pyenv
 popd >/dev/null
 
 ### compile ###

@@ -14,7 +14,8 @@ Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 EOF
 
 RUN apt-get update && apt-get -y dist-upgrade locales && \
-    apt-get install -y tzdata lib32z1 xinetd tcpdump
+    apt-get install -y tzdata lib32z1 xinetd tcpdump && \
+    apt-get install sudo
 
 RUN locale-gen zh_CN.UTF-8
 ENV LANG zh_CN.UTF-8
@@ -49,10 +50,11 @@ RUN chown -R root:pwn /home/pwn && \
 ### config root env ###
 WORKDIR /root
 
-COPY ./docker/scripts/ /root/scripts/
-COPY ./docker/tools/ /root/tools/
 COPY ./config/bashrc /root/.bashrc
 COPY ./config/pip /root/.pip
+COPY ./docker/scripts/ /root/scripts/
+COPY ./docker/tools/ /root/tools/
+COPY ./docker/env/ /opt/env/
 
 RUN dpkg --add-architecture i386
 RUN apt-get update && \
@@ -63,6 +65,10 @@ RUN apt-get update && \
 
 # temporary fix error: externally-managed-environment
 RUN mv /usr/lib/python3.12/EXTERNALLY-MANAGED /usr/lib/python3.12/EXTERNALLY-MANAGED.bak
+
+# install custom tools
+RUN bash /opt/env/install.sh
+RUN bash /opt/env/pyenv/install.sh
 
 # install pwn tools
 RUN pip3 install pip --upgrade --ignore-installed
@@ -79,10 +85,6 @@ RUN cd /root/tools/gdb/plugins/pwndbg && \
     ./setup.sh
 
 RUN cp /root/tools/gdb/init/pwndbg.conf /root/.gdbinit
-
-# install custom tools
-COPY ./docker/env/ /opt/env/
-RUN bash /opt/env/install.sh
 
 # download glibc source code
 RUN mkdir /root/files && cd /root/files && \
