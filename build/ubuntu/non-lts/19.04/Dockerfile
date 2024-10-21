@@ -66,7 +66,8 @@ RUN pip3 install prettytable colorama loguru tqdm && \
     pip3 install z3-solver angr pwntools
 
 RUN gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/ && \
-    gem install one_gadget && \
+    gem install elftools -v 1.1.3 && \
+    gem install one_gadget -v 1.9.0 && \
     gem install seccomp-tools -v 1.5.0
 
 RUN cd /root/tools/gdb/plugins/pwndbg && \
