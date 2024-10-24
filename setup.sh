@@ -39,6 +39,7 @@ curl -C - https://raw.githubusercontent.com/hugsy/gef/master/gef.py -o gef.py
 sync-git-repo https://github.com/pwndbg/pwndbg
 sync-git-repo https://github.com/longld/peda
 sync-git-repo https://github.com/scwuaptx/Pwngdb
+sync-git-repo https://github.com/jerdna-regeiz/splitmind
 popd
 
 ### download(shared) ###
@@ -68,11 +69,6 @@ sync-git-repo https://github.com/matrix1001/glibc-all-in-one
 sync-git-repo https://github.com/niklasb/libc-database
 sync-git-repo https://github.com/NixOS/patchelf
 sync-git-repo https://github.com/Ex-Origin/debug-server
-popd >/dev/null
-
-# @ docker/tools
-pushd ./docker/tools/ >/dev/null
-sync-git-repo https://github.com/pyenv/pyenv
 popd >/dev/null
 
 ### compile ###
