@@ -158,7 +158,12 @@ bash ./xinetd.sh
 - python
   - 已安装：angr、gmpy2、pwntools、pycryptodome、z3 等（包含常用 python 库）
   - pip 默认源：https://pypi.tuna.tsinghua.edu.cn/simple
-  - 部分发行版 python 版本过低，所以将工具安装在了 pyenv 环境中（ubutnu16.04、ubutnu18.04、ubutnu20.04）
+  - 部分旧发行版将工具安装到了 pyenv 中
+    | 发行版 | Python 版本切换命令 |
+    | ----------- | -------------------- |
+    | Ubuntu 16.04 | `pyenv shell 3.8.19` |
+    | Ubuntu 18.04 | `pyenv shell 3.10.14` |
+    | Ubuntu 20.04 | `pyenv shell 3.10.14` |
 - gdb
   - 默认加载插件：Pwngdb
   - 手动加载插件：peda、gef、pwndbg
