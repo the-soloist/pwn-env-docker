@@ -61,7 +61,7 @@ RUN apt-get update && \
 # install custom tools
 RUN bash /opt/env/install.sh && \
     bash /opt/env/pyenv/install.sh && \
-    bash /opt/env/pyenv/python-3.10.sh
+    bash /opt/env/pyenv/python.sh -p 3.10.14
 
 # install pwn tools
 RUN bash /opt/env/pwn/python.sh -p 3.10.14
