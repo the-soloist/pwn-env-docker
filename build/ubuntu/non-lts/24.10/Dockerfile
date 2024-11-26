@@ -68,7 +68,7 @@ RUN mv /usr/lib/python3.12/EXTERNALLY-MANAGED /usr/lib/python3.12/EXTERNALLY-MAN
 
 # install custom tools
 RUN bash /opt/env/install.sh
-RUN bash /opt/env/pyenv/install.sh
+RUN bash /opt/env/pyenv/base.sh
 
 # install pwn tools
 RUN pip3 install pip --upgrade --ignore-installed

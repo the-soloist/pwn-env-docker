@@ -57,27 +57,21 @@ RUN apt-get update && \
     apt-get install -y libc6-dbg libc6-dbg:i386 libseccomp-dev libgmp-dev libmpfr-dev libmpc-dev libssl-dev libffi-dev && \
     apt-get install -y gdb gdbserver strace socat openssh-server net-tools iputils-ping && \
     apt-get install -y git vim tmux wget curl sshfs
+RUN pip3 install pip==20.3.4
 
 # install custom tools
 RUN bash /opt/env/install.sh && \
-    bash /opt/env/pyenv/install.sh && \
-    bash /opt/env/pyenv/python.sh -p 3.8.19
+    bash /opt/env/pyenv/base.sh && \
+    bash /opt/env/pyenv/install.sh -p 3.8.19
 
 # install pwn tools
-RUN bash /opt/env/pwn/python.sh -p 3.8.19
+RUN bash /opt/env/pwn/pyenv.sh -p 3.8.19
 
-RUN pip3 install pip==20.3.4
-
-RUN gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/ && \
-    gem install bindata -v 2.4.14 && \
-    gem install one_gadget -v 1.7.3 && \
-    gem install seccomp-tools -v 1.3.0
-
-RUN cd /root/tools/gdb/plugins/pwndbg && \
-    git checkout -f 2022.01.05 && \
-    ./setup.sh
-
-RUN cp /root/tools/gdb/init/pwndbg.conf /root/.gdbinit
+RUN BINDATA_VER=2.4.14 \
+    ONE_GADGET_VER=1.7.3 \
+    SECCOMP_TOOLS_VER=1.3.0 \
+    PWNDBG_VER=2022.01.05 \
+    bash /opt/env/pwn/base.sh
 
 # download glibc source code
 RUN mkdir /root/files && cd /root/files && \

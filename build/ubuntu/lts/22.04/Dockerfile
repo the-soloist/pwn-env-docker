@@ -57,26 +57,19 @@ RUN apt-get update && \
     apt-get install -y libc6-dbg libc6-dbg:i386 libseccomp-dev libgmp-dev libmpfr-dev libmpc-dev libssl-dev libffi-dev && \
     apt-get install -y gdb gdbserver strace socat openssh-server net-tools iputils-ping && \
     apt-get install -y git vim tmux wget curl sshfs
+RUN pip3 install pip --upgrade
 
 # install custom tools
 RUN bash /opt/env/install.sh
-RUN bash /opt/env/pyenv/install.sh
+RUN bash /opt/env/pyenv/base.sh
 
 # install pwn tools
-RUN pip3 install pip --upgrade
-RUN pip3 install prettytable colorama loguru tqdm && \
-    pip3 install ipdb websocket-client psutil requests redis && \
-    pip3 install gmpy2 pycryptodome && \
-    pip3 install z3-solver angr pwntools
+RUN bash /opt/env/pwn/python.sh
 
-RUN gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/ && \
-    gem install one_gadget && \
-    gem install seccomp-tools
-
-RUN cd /root/tools/gdb/plugins/pwndbg && \
-    ./setup.sh
-
-RUN cp /root/tools/gdb/init/pwndbg.conf /root/.gdbinit
+RUN ONE_GADGET_VER=-1 \
+    SECCOMP_TOOLS_VER=-1 \
+    PWNDBG_VER=-1 \
+    bash /opt/env/pwn/base.sh
 
 # download glibc source code
 RUN mkdir /root/files && cd /root/files && \

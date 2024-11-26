@@ -20,4 +20,15 @@ export PYENV_ROOT="/opt/pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(command pyenv init -)"
 
-pyenv install $PY_VERSION
+pyenv shell $PY_VERSION
+
+if [[ $? -ne 0 ]]; then
+    echo "errors in 'pyenv shell $PY_VERSION'"
+    exit 1
+fi
+
+pip3 install pip --upgrade
+pip3 install prettytable colorama loguru tqdm
+pip3 install ipdb websocket-client psutil requests redis
+pip3 install gmpy2 pycryptodome
+pip3 install z3-solver angr pwntools

@@ -57,27 +57,21 @@ RUN apt-get update && \
     apt-get install -y libc6-dbg libc6-dbg:i386 libseccomp-dev libgmp-dev libmpfr-dev libmpc-dev libssl-dev libffi-dev && \
     apt-get install -y gdb gdbserver strace socat openssh-server net-tools iputils-ping && \
     apt-get install -y git vim tmux wget curl sshfs
+RUN pip3 install pip==21.3.1
 
 # install custom tools
 RUN bash /opt/env/install.sh && \
-    bash /opt/env/pyenv/install.sh && \
-    bash /opt/env/pyenv/python.sh -p 3.10.14
+    bash /opt/env/pyenv/base.sh && \
+    bash /opt/env/pyenv/install.sh -p 3.10.14
 
 # install pwn tools
-RUN bash /opt/env/pwn/python.sh -p 3.10.14
+RUN bash /opt/env/pwn/pyenv.sh -p 3.10.14
 
-RUN pip3 install pip==21.3.1
-
-RUN gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/ && \
-    gem install elftools -v 1.1.3 && \
-    gem install one_gadget -v 1.9.0 && \
-    gem install seccomp-tools -v 1.5.0
-
-RUN cd /root/tools/gdb/plugins/pwndbg && \
-    git checkout -f 2022.08.30 && \
-    ./setup.sh
-
-RUN cp /root/tools/gdb/init/pwndbg.conf /root/.gdbinit
+RUN ELFTOOLS_VER=1.1.3 \
+    ONE_GADGET_VER=1.9.0 \
+    SECCOMP_TOOLS_VER=1.5.0 \
+    PWNDBG_VER=2022.08.30 \
+    bash /opt/env/pwn/base.sh
 
 # download glibc source code
 RUN mkdir /root/files && cd /root/files && \

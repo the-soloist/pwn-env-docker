@@ -65,26 +65,19 @@ RUN apt-get update && \
 
 # temporary fix error: externally-managed-environment
 RUN mv /usr/lib/python3.12/EXTERNALLY-MANAGED /usr/lib/python3.12/EXTERNALLY-MANAGED.bak
+RUN pip3 install pip --upgrade --ignore-installed
 
 # install custom tools
 RUN bash /opt/env/install.sh
-RUN bash /opt/env/pyenv/install.sh
+RUN bash /opt/env/pyenv/base.sh
 
 # install pwn tools
-RUN pip3 install pip --upgrade --ignore-installed
-RUN pip3 install prettytable colorama loguru tqdm && \
-    pip3 install ipdb websocket-client psutil requests redis && \
-    pip3 install gmpy2 pycryptodome && \
-    pip3 install z3-solver angr pwntools
+RUN bash /opt/env/pwn/python.sh
 
-RUN gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/ && \
-    gem install one_gadget && \
-    gem install seccomp-tools
-
-RUN cd /root/tools/gdb/plugins/pwndbg && \
-    ./setup.sh
-
-RUN cp /root/tools/gdb/init/pwndbg.conf /root/.gdbinit
+RUN ONE_GADGET_VER=-1 \
+    SECCOMP_TOOLS_VER=-1 \
+    PWNDBG_VER=-1 \
+    bash /opt/env/pwn/base.sh
 
 # download glibc source code
 RUN mkdir /root/files && cd /root/files && \
