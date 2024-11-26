@@ -297,6 +297,24 @@ services:
       - '22'
       - '8888'
 
+  ubuntu-24.10:
+    container_name: pwn-env-dev_ubuntu-24.10
+    build:
+      context: ./
+      dockerfile: ./build/ubuntu/lts/24.10/Dockerfile
+    volumes:
+      - ./challenge:/challenge
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./share:/share
+      - ./ssh:/root/.ssh
+    ports:
+      - '22410:22'
+      - '62410:8888'
+    expose:
+      - '22'
+      - '8888'
+
 networks:
   devnet:
     driver: bridge

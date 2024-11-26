@@ -87,6 +87,7 @@ docker compose -f docker-compose-dev.yml build <service-name>
 | th3s/pwn-env:ubuntu-23.04 | Ubuntu 23.04 | 2.37      | 22304 -> 22  | 62304 -> 8888   |
 | th3s/pwn-env:ubuntu-23.10 | Ubuntu 23.10 | 2.38      | 22310 -> 22  | 62310 -> 8888   |
 | th3s/pwn-env:ubuntu-24.04 | Ubuntu 24.04 | 2.39      | 22404 -> 22  | 62404 -> 8888   |
+| th3s/pwn-env:ubuntu-24.10 | Ubuntu 24.10 | 2.40      | 22410 -> 22  | 62410 -> 8888   |
 
 #### compose volumes 映射
 

@@ -238,3 +238,19 @@ services:
     expose:
       - '22'
       - '8888'
+
+  ubuntu-24.10:
+    image: th3s/pwn-env:ubuntu-24.10
+    container_name: pwn-env_ubuntu-24.10
+    volumes:
+      - ./challenge:/challenge
+      - ./config:/root/.config
+      - ./deps:/deps
+      - ./share:/share
+      - ./ssh:/root/.ssh
+    ports:
+      - '22410:22'
+      - '62410:8888'
+    expose:
+      - '22'
+      - '8888'

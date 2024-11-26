@@ -350,3 +350,34 @@ jobs:
           file: ./build/ubuntu/non-lts/23.10/Dockerfile
           push: true
           tags: th3s/pwn-env:ubuntu-23.10
+
+  build-ubuntu2410:
+    if: |
+      github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' ||
+      contains(needs.init-build-env.outputs.changed-files, 'ubuntu/non-lts/24.10')
+    runs-on: ubuntu-latest
+    needs: [init-build-env]
+
+    steps:
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: env-artifact
+          path: .
+
+      - name: Decompress Artifact
+        run: unzip artifact.zip -d .
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./
+          file: ./build/ubuntu/non-lts/24.10/Dockerfile
+          push: true
+          tags: th3s/pwn-env:ubuntu-24.10
