@@ -113,7 +113,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 # @ pyenv
 export PYENV_ROOT="/opt/pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
 
 # @ python
 export PIP_CONFIG_FILE="$XDG_CONFIG_HOME/pip/pip.conf"
