@@ -3,8 +3,8 @@ FROM ubuntu:23.04
 ENV TZ=Asia/Shanghai
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.ustc.edu.cn/g" /etc/apt/sources.list && \
-    sed -i "s/http:\/\/security.ubuntu.com/http:\/\/mirrors.ustc.edu.cn/g" /etc/apt/sources.list && \
+RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/old-releases.ubuntu.com/g" /etc/apt/sources.list && \
+    sed -i "s/http:\/\/security.ubuntu.com/http:\/\/old-releases.ubuntu.com/g" /etc/apt/sources.list && \
     sed -i "s/# deb-src/deb-src/g" /etc/apt/sources.list && \
     sed -i "s/^[^#].*archive\.canonical\.com*/#&/g" /etc/apt/sources.list
 
