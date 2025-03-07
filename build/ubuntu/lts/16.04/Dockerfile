@@ -41,8 +41,8 @@ RUN echo "Blocked by pwn-env-docker" > /etc/banner_fail
 RUN chown -R root:pwn /home/pwn && \
     chmod -R 750 /home/pwn
 
-
 ### config root env ###
+
 WORKDIR /root
 
 COPY ./config/bashrc /root/.bashrc
@@ -65,9 +65,8 @@ RUN bash /opt/env/install.sh && \
     bash /opt/env/pyenv/install.sh -p 3.8.19
 
 # install pwn tools
-RUN bash /opt/env/pwn/pyenv.sh -p 3.8.19
-
-RUN bash /opt/env/pwn/base.sh -p 3.8.19 -v ubuntu-16.04
+RUN bash /opt/env/pwn/pyenv.sh -p 3.8.19 && \
+    bash /opt/env/pwn/base.sh -p 3.8.19 -v ubuntu-16.04
 
 # download glibc source code
 RUN mkdir /root/files && cd /root/files && \

@@ -46,8 +46,8 @@ RUN echo "Blocked by pwn-env-docker" > /etc/banner_fail
 RUN chown -R root:pwn /home/pwn && \
     chmod -R 750 /home/pwn
 
-
 ### config root env ###
+
 WORKDIR /root
 
 COPY ./config/bashrc /root/.bashrc
@@ -68,13 +68,13 @@ RUN mv /usr/lib/python3.12/EXTERNALLY-MANAGED /usr/lib/python3.12/EXTERNALLY-MAN
 RUN pip3 install pip --upgrade --ignore-installed
 
 # install custom tools
-RUN bash /opt/env/install.sh
-RUN bash /opt/env/pyenv/base.sh
+RUN bash /opt/env/install.sh && \
+    bash /opt/env/pyenv/base.sh && \
+    bash /opt/env/pyenv/install.sh -p 3.12.9
 
 # install pwn tools
-RUN bash /opt/env/pwn/python.sh
-
-RUN bash /opt/env/pwn/base.sh -p 3.12.14 -v ubuntu-24.04
+RUN bash /opt/env/pwn/pyenv.sh -p 3.12.9 && \
+    bash /opt/env/pwn/base.sh -v ubuntu-24.04
 
 # download glibc source code
 RUN mkdir /root/files && cd /root/files && \
