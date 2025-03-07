@@ -67,11 +67,7 @@ RUN bash /opt/env/install.sh && \
 # install pwn tools
 RUN bash /opt/env/pwn/pyenv.sh -p 3.10.14
 
-RUN ELFTOOLS_VER=1.1.3 \
-    ONE_GADGET_VER=1.9.0 \
-    SECCOMP_TOOLS_VER=1.5.0 \
-    PWNDBG_VER=2022.08.30 \
-    bash /opt/env/pwn/base.sh
+RUN bash /opt/env/pwn/base.sh -p 3.10.14 -v ubuntu-18.04
 
 # download glibc source code
 RUN mkdir /root/files && cd /root/files && \

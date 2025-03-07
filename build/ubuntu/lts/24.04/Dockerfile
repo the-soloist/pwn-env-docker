@@ -74,10 +74,7 @@ RUN bash /opt/env/pyenv/base.sh
 # install pwn tools
 RUN bash /opt/env/pwn/python.sh
 
-RUN ONE_GADGET_VER=-1 \
-    SECCOMP_TOOLS_VER=-1 \
-    PWNDBG_VER=-1 \
-    bash /opt/env/pwn/base.sh
+RUN bash /opt/env/pwn/base.sh -p 3.12.14 -v ubuntu-24.04
 
 # download glibc source code
 RUN mkdir /root/files && cd /root/files && \

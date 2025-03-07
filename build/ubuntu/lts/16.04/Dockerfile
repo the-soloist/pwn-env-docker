@@ -67,11 +67,7 @@ RUN bash /opt/env/install.sh && \
 # install pwn tools
 RUN bash /opt/env/pwn/pyenv.sh -p 3.8.19
 
-RUN BINDATA_VER=2.4.14 \
-    ONE_GADGET_VER=1.7.3 \
-    SECCOMP_TOOLS_VER=1.3.0 \
-    PWNDBG_VER=2022.01.05 \
-    bash /opt/env/pwn/base.sh
+RUN bash /opt/env/pwn/base.sh -p 3.8.19 -v ubuntu-16.04
 
 # download glibc source code
 RUN mkdir /root/files && cd /root/files && \
