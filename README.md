@@ -162,7 +162,7 @@ bash ./xinetd.sh
   - python相关工具全部安装到了 pyenv 中，可以使用`pyenv shell <version>`进行切换
     | 发行版 | Python 版本切换命令 |
     | ----------- | -------------------- |
-    | Ubuntu 16.04 |  `pyenv shell 3.8.19` |
+    | Ubuntu 16.04 |  `pyenv shell 3.8.20` |
     | Ubuntu 18.04 | `pyenv shell 3.10.16` |
     | Ubuntu 20.04 | `pyenv shell 3.10.16` |
     | Ubuntu 22.04 | `pyenv shell 3.10.16` |
