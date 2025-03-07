@@ -61,7 +61,7 @@ RUN pip3 install pip==21.3.1
 
 # install custom tools
 RUN bash /opt/env/install.sh && \
-    bash /opt/env/pyenv/base.sh && \
+    bash /opt/env/pyenv/deps.sh && \
     bash /opt/env/pyenv/install.sh -p 3.10.16
 
 # install pwn tools

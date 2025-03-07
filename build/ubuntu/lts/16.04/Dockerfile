@@ -61,12 +61,12 @@ RUN pip3 install pip==20.3.4
 
 # install custom tools
 RUN bash /opt/env/install.sh && \
-    bash /opt/env/pyenv/base.sh && \
+    bash /opt/env/pyenv/deps.sh && \
     bash /opt/env/pyenv/install.sh -p 3.8.19
 
 # install pwn tools
 RUN bash /opt/env/pwn/pyenv.sh -p 3.8.19 && \
-    bash /opt/env/pwn/base.sh -p 3.8.19 -v ubuntu-16.04
+    bash /opt/env/pwn/base.sh -v ubuntu-16.04
 
 # download glibc source code
 RUN mkdir /root/files && cd /root/files && \

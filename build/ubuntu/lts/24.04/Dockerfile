@@ -69,7 +69,7 @@ RUN pip3 install pip --upgrade --ignore-installed
 
 # install custom tools
 RUN bash /opt/env/install.sh && \
-    bash /opt/env/pyenv/base.sh && \
+    bash /opt/env/pyenv/deps.sh && \
     bash /opt/env/pyenv/install.sh -p 3.12.9
 
 # install pwn tools
