@@ -18,6 +18,7 @@ ENV LC_ALL zh_CN.UTF-8
 
 
 ### config user env ###
+
 RUN useradd -m pwn
 
 WORKDIR /home/pwn
@@ -40,6 +41,7 @@ RUN echo "Blocked by pwn-env-docker" > /etc/banner_fail
 
 RUN chown -R root:pwn /home/pwn && \
     chmod -R 750 /home/pwn
+
 
 ### config root env ###
 
@@ -85,6 +87,7 @@ RUN apt-get clean
 
 
 ### end ###
+
 COPY ./docker/start.sh /start.sh
 RUN chmod +x /start.sh
 CMD ["/start.sh"]
