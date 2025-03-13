@@ -28,7 +28,8 @@ if [[ $? -ne 0 ]]; then
 fi
 
 pip3 install pip --upgrade
-pip3 install prettytable colorama loguru tqdm
-pip3 install ipdb websocket-client psutil requests redis
+pip3 install prettytable colorama loguru tqdm termcolor tabulate
+pip3 install ipdb ipython websocket-client psutil requests redis
 pip3 install gmpy2 pycryptodome
-pip3 install z3-solver angr pwntools
+pip3 install z3-solver angr pwntools winpwn
+pip3 install pybase62 base58 base91 pybase100
