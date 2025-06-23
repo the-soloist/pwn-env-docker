@@ -21,7 +21,7 @@ tar -xvf Python-$PY_VERSION.tar.xz
 mv Python-$PY_VERSION python-$PY_VERSION
 
 docker exec -it $CONTAINER_ID bash -c \
-    "cd /deps/python-$PY_VERSION && \
+    "cd /opt/deps/python-$PY_VERSION && \
     ./configure --prefix=/opt/python-$PY_VERSION && \
     make -j16 && make install"
 

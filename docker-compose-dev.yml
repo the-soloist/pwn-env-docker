@@ -7,7 +7,7 @@ services:
     volumes:
       - ./challenge:/challenge
       - ./config:/root/.config
-      - ./deps:/deps
+      - ./deps:/opt/deps
       - ./share:/share
       - ./ssh:/root/.ssh
     ports:
@@ -27,7 +27,7 @@ services:
     volumes:
       - ./challenge:/challenge
       - ./config:/root/.config
-      - ./deps:/deps
+      - ./deps:/opt/deps
       - ./share:/share
       - ./ssh:/root/.ssh
     ports:
@@ -47,7 +47,7 @@ services:
     volumes:
       - ./challenge:/challenge
       - ./config:/root/.config
-      - ./deps:/deps
+      - ./deps:/opt/deps
       - ./share:/share
       - ./ssh:/root/.ssh
     ports:
@@ -67,7 +67,7 @@ services:
     volumes:
       - ./challenge:/challenge
       - ./config:/root/.config
-      - ./deps:/deps
+      - ./deps:/opt/deps
       - ./share:/share
       - ./ssh:/root/.ssh
     ports:
@@ -87,7 +87,7 @@ services:
     volumes:
       - ./challenge:/challenge
       - ./config:/root/.config
-      - ./deps:/deps
+      - ./deps:/opt/deps
       - ./share:/share
       - ./ssh:/root/.ssh
     ports:
@@ -107,7 +107,7 @@ services:
     volumes:
       - ./challenge:/challenge
       - ./config:/root/.config
-      - ./deps:/deps
+      - ./deps:/opt/deps
       - ./share:/share
       - ./ssh:/root/.ssh
     ports:
@@ -127,7 +127,7 @@ services:
     volumes:
       - ./challenge:/challenge
       - ./config:/root/.config
-      - ./deps:/deps
+      - ./deps:/opt/deps
       - ./share:/share
       - ./ssh:/root/.ssh
     ports:
@@ -147,7 +147,7 @@ services:
     volumes:
       - ./challenge:/challenge
       - ./config:/root/.config
-      - ./deps:/deps
+      - ./deps:/opt/deps
       - ./share:/share
       - ./ssh:/root/.ssh
     ports:
@@ -167,7 +167,7 @@ services:
     volumes:
       - ./challenge:/challenge
       - ./config:/root/.config
-      - ./deps:/deps
+      - ./deps:/opt/deps
       - ./share:/share
       - ./ssh:/root/.ssh
     ports:
@@ -187,7 +187,7 @@ services:
     volumes:
       - ./challenge:/challenge
       - ./config:/root/.config
-      - ./deps:/deps
+      - ./deps:/opt/deps
       - ./share:/share
       - ./ssh:/root/.ssh
     ports:
@@ -207,7 +207,7 @@ services:
     volumes:
       - ./challenge:/challenge
       - ./config:/root/.config
-      - ./deps:/deps
+      - ./deps:/opt/deps
       - ./share:/share
       - ./ssh:/root/.ssh
     ports:
@@ -227,7 +227,7 @@ services:
     volumes:
       - ./challenge:/challenge
       - ./config:/root/.config
-      - ./deps:/deps
+      - ./deps:/opt/deps
       - ./share:/share
       - ./ssh:/root/.ssh
     ports:
@@ -247,7 +247,7 @@ services:
     volumes:
       - ./challenge:/challenge
       - ./config:/root/.config
-      - ./deps:/deps
+      - ./deps:/opt/deps
       - ./share:/share
       - ./ssh:/root/.ssh
     ports:
@@ -267,7 +267,7 @@ services:
     volumes:
       - ./challenge:/challenge
       - ./config:/root/.config
-      - ./deps:/deps
+      - ./deps:/opt/deps
       - ./share:/share
       - ./ssh:/root/.ssh
     ports:
@@ -287,7 +287,7 @@ services:
     volumes:
       - ./challenge:/challenge
       - ./config:/root/.config
-      - ./deps:/deps
+      - ./deps:/opt/deps
       - ./share:/share
       - ./ssh:/root/.ssh
     ports:
@@ -305,7 +305,7 @@ services:
     volumes:
       - ./challenge:/challenge
       - ./config:/root/.config
-      - ./deps:/deps
+      - ./deps:/opt/deps
       - ./share:/share
       - ./ssh:/root/.ssh
     ports:
