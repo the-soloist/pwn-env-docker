@@ -76,7 +76,7 @@ docker compose -f docker-compose-dev.yml build <service-name>
 | th3s/pwn-env:ubuntu-17.04 | Ubuntu 17.04 | 2.24         | 21704 -> 22 | 61704 -> 8888 | ✅      |
 | th3s/pwn-env:ubuntu-17.10 | Ubuntu 17.10 | 2.26         | 21710 -> 22 | 61710 -> 8888 | ✅      |
 | th3s/pwn-env:ubuntu-18.04 | Ubuntu 18.04 | 2.27         | 21804 -> 22 | 61804 -> 8888 |         |
-| th3s/pwn-env:ubuntu-18.10 | Ubuntu 18.10 | 2.28         | 21810 -> 22 | 61810 -> 8888 |         |
+| th3s/pwn-env:ubuntu-18.10 | Ubuntu 18.10 | 2.28         | 21810 -> 22 | 61810 -> 8888 | ✅      |
 | th3s/pwn-env:ubuntu-19.04 | Ubuntu 19.04 | 2.29         | 21904 -> 22 | 61904 -> 8888 |         |
 | th3s/pwn-env:ubuntu-19.10 | Ubuntu 19.10 | 2.30         | 21910 -> 22 | 61910 -> 8888 |         |
 | th3s/pwn-env:ubuntu-20.04 | Ubuntu 20.04 | 2.31         | 22004 -> 22 | 62004 -> 8888 |         |
