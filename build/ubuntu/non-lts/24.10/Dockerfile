@@ -1,7 +1,7 @@
 FROM ubuntu:24.10
 
-ENV TZ Asia/Shanghai
-ENV DEBIAN_FRONTEND noninteractive
+ENV TZ=Asia/Shanghai
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list && \
     cat <<EOF >> /etc/apt/sources.list.d/ubuntu.sources
@@ -18,8 +18,8 @@ RUN apt-get update && apt-get -y dist-upgrade locales && \
     apt-get install sudo
 
 RUN locale-gen zh_CN.UTF-8
-ENV LANG zh_CN.UTF-8
-# ENV LC_ALL zh_CN.UTF-8
+ENV LANG=zh_CN.UTF-8
+# ENV LC_ALL=zh_CN.UTF-8
 
 
 ### config user env ###

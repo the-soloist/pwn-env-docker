@@ -1,7 +1,7 @@
 FROM ubuntu:23.04
 
-ENV TZ Asia/Shanghai
-ENV DEBIAN_FRONTEND noninteractive
+ENV TZ=Asia/Shanghai
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/old-releases.ubuntu.com/g" /etc/apt/sources.list && \
     sed -i "s/http:\/\/security.ubuntu.com/http:\/\/old-releases.ubuntu.com/g" /etc/apt/sources.list && \
@@ -13,8 +13,8 @@ RUN apt-get update && apt-get -y dist-upgrade locales && \
     apt-get install sudo
 
 RUN locale-gen zh_CN.UTF-8
-ENV LANG zh_CN.UTF-8
-# ENV LC_ALL zh_CN.UTF-8
+ENV LANG=zh_CN.UTF-8
+# ENV LC_ALL=zh_CN.UTF-8
 
 
 ### config user env ###
