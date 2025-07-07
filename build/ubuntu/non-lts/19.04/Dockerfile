@@ -72,7 +72,7 @@ RUN gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove ht
 
 # Some files were modified for unknown reasons, stash them
 RUN cd /root/tools/gdb/plugins/pwndbg && \
-    git stash && git checkout 2023.07.17 && \
+    git reset --hard HEAD && git checkout 2023.07.17 && \
     ./setup.sh
 
 RUN cp /root/tools/gdb/init/pwndbg.conf /root/.gdbinit
