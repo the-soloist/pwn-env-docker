@@ -70,24 +70,24 @@ docker compose -f docker-compose-dev.yml build <service-name>
 
 #### 系统信息
 
-| 镜像                      | 系统版本     | libc 版本 | ssh 端口映射 | xinetd 端口映射 |
-| ------------------------- | ------------ | --------- | ------------ | --------------- |
-| th3s/pwn-env:ubuntu-16.04 | Ubuntu 16.04 | 2.23      | 21604 -> 22  | 61604 -> 8888   |
-| th3s/pwn-env:ubuntu-17.04 | Ubuntu 17.04 | 2.24      | 21704 -> 22  | 61704 -> 8888   |
-| th3s/pwn-env:ubuntu-17.10 | Ubuntu 17.10 | 2.26      | 21710 -> 22  | 61710 -> 8888   |
-| th3s/pwn-env:ubuntu-18.04 | Ubuntu 18.04 | 2.27      | 21804 -> 22  | 61804 -> 8888   |
-| th3s/pwn-env:ubuntu-18.10 | Ubuntu 18.10 | 2.28      | 21810 -> 22  | 61810 -> 8888   |
-| th3s/pwn-env:ubuntu-19.04 | Ubuntu 19.04 | 2.29      | 21904 -> 22  | 61904 -> 8888   |
-| th3s/pwn-env:ubuntu-19.10 | Ubuntu 19.10 | 2.30      | 21910 -> 22  | 61910 -> 8888   |
-| th3s/pwn-env:ubuntu-20.04 | Ubuntu 20.04 | 2.31      | 22004 -> 22  | 62004 -> 8888   |
-| th3s/pwn-env:ubuntu-20.10 | Ubuntu 20.10 | 2.32      | 22010 -> 22  | 62010 -> 8888   |
-| th3s/pwn-env:ubuntu-21.04 | Ubuntu 21.04 | 2.33      | 22104 -> 22  | 62104 -> 8888   |
-| th3s/pwn-env:ubuntu-22.04 | Ubuntu 22.04 | 2.35      | 22204 -> 22  | 62204 -> 8888   |
-| th3s/pwn-env:ubuntu-22.10 | Ubuntu 22.10 | 2.36      | 22210 -> 22  | 62210 -> 8888   |
-| th3s/pwn-env:ubuntu-23.04 | Ubuntu 23.04 | 2.37      | 22304 -> 22  | 62304 -> 8888   |
-| th3s/pwn-env:ubuntu-23.10 | Ubuntu 23.10 | 2.38      | 22310 -> 22  | 62310 -> 8888   |
-| th3s/pwn-env:ubuntu-24.04 | Ubuntu 24.04 | 2.39      | 22404 -> 22  | 62404 -> 8888   |
-| th3s/pwn-env:ubuntu-24.10 | Ubuntu 24.10 | 2.40      | 22410 -> 22  | 62410 -> 8888   |
+| 镜像                      | 系统版本     | libc 版本 | ssh 端口映射 | xinetd 端口映射 | 归档 |
+| ------------------------- | ------------ | --------- | ------------ | --------------- | ---- |
+| th3s/pwn-env:ubuntu-16.04 | Ubuntu 16.04 | 2.23      | 21604 -> 22  | 61604 -> 8888   |      |
+| th3s/pwn-env:ubuntu-17.04 | Ubuntu 17.04 | 2.24      | 21704 -> 22  | 61704 -> 8888   |      |
+| th3s/pwn-env:ubuntu-17.10 | Ubuntu 17.10 | 2.26      | 21710 -> 22  | 61710 -> 8888   |      |
+| th3s/pwn-env:ubuntu-18.04 | Ubuntu 18.04 | 2.27      | 21804 -> 22  | 61804 -> 8888   |      |
+| th3s/pwn-env:ubuntu-18.10 | Ubuntu 18.10 | 2.28      | 21810 -> 22  | 61810 -> 8888   |      |
+| th3s/pwn-env:ubuntu-19.04 | Ubuntu 19.04 | 2.29      | 21904 -> 22  | 61904 -> 8888   |      |
+| th3s/pwn-env:ubuntu-19.10 | Ubuntu 19.10 | 2.30      | 21910 -> 22  | 61910 -> 8888   |      |
+| th3s/pwn-env:ubuntu-20.04 | Ubuntu 20.04 | 2.31      | 22004 -> 22  | 62004 -> 8888   |      |
+| th3s/pwn-env:ubuntu-20.10 | Ubuntu 20.10 | 2.32      | 22010 -> 22  | 62010 -> 8888   |      |
+| th3s/pwn-env:ubuntu-21.04 | Ubuntu 21.04 | 2.33      | 22104 -> 22  | 62104 -> 8888   |      |
+| th3s/pwn-env:ubuntu-22.04 | Ubuntu 22.04 | 2.35      | 22204 -> 22  | 62204 -> 8888   |      |
+| th3s/pwn-env:ubuntu-22.10 | Ubuntu 22.10 | 2.36      | 22210 -> 22  | 62210 -> 8888   |      |
+| th3s/pwn-env:ubuntu-23.04 | Ubuntu 23.04 | 2.37      | 22304 -> 22  | 62304 -> 8888   |      |
+| th3s/pwn-env:ubuntu-23.10 | Ubuntu 23.10 | 2.38      | 22310 -> 22  | 62310 -> 8888   |      |
+| th3s/pwn-env:ubuntu-24.04 | Ubuntu 24.04 | 2.39      | 22404 -> 22  | 62404 -> 8888   |      |
+| th3s/pwn-env:ubuntu-24.10 | Ubuntu 24.10 | 2.40      | 22410 -> 22  | 62410 -> 8888   |      |
 
 #### compose volumes 映射
 
