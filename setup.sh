@@ -34,12 +34,11 @@ echo "REPLACE THIS FILE" >./ssh/authorized_keys
 
 # @ gdb plugins
 pushd ./docker/tools/gdb/plugins/ >/dev/null
-[ -e "./gef.py" ] && rm ./gef.py
-curl -C - https://raw.githubusercontent.com/hugsy/gef/master/gef.py -o gef.py
-sync-git-repo https://github.com/pwndbg/pwndbg
-sync-git-repo https://github.com/longld/peda
-sync-git-repo https://github.com/scwuaptx/Pwngdb
+sync-git-repo https://github.com/hugsy/gef
 sync-git-repo https://github.com/jerdna-regeiz/splitmind
+sync-git-repo https://github.com/longld/peda
+sync-git-repo https://github.com/pwndbg/pwndbg
+sync-git-repo https://github.com/scwuaptx/Pwngdb
 popd
 
 ### download(shared) ###
