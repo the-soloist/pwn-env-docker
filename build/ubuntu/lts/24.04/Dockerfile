@@ -66,8 +66,8 @@ RUN apt-get update && \
     apt-get install -y git vim tmux wget curl sshfs
 
 # temporary fix error: externally-managed-environment
-RUN mv /usr/lib/python3.12/EXTERNALLY-MANAGED /usr/lib/python3.12/EXTERNALLY-MANAGED.bak
-RUN pip3 install pip --upgrade --ignore-installed
+# RUN mv /usr/lib/python3.12/EXTERNALLY-MANAGED /usr/lib/python3.12/EXTERNALLY-MANAGED.bak
+RUN pip3 install pip --upgrade --user --break-system-packages
 
 # install custom tools
 RUN bash /opt/env/install.sh && \
