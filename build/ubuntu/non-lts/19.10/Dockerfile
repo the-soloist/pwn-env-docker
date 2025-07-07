@@ -70,6 +70,7 @@ RUN gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove ht
     gem install one_gadget -v 1.9.0 && \
     gem install seccomp-tools -v 1.5.0
 
+# Some files were modified for unknown reasons, stash them
 RUN cd /root/tools/gdb/plugins/pwndbg && \
     git stash && git checkout 2023.07.17 && \
     ./setup.sh
