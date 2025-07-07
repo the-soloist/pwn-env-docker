@@ -1,6 +1,6 @@
 FROM ubuntu:21.04
 
-ENV TZ=Asia/Shanghai
+ENV TZ Asia/Shanghai
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.ustc.edu.cn\/ubuntu-old-releases/g" /etc/apt/sources.list && \

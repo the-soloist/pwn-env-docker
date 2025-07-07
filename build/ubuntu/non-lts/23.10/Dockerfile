@@ -1,6 +1,6 @@
 FROM ubuntu:23.10
 
-ENV TZ=Asia/Shanghai
+ENV TZ Asia/Shanghai
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/old-releases.ubuntu.com/g" /etc/apt/sources.list && \

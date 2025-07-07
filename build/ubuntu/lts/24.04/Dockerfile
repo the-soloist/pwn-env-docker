@@ -1,6 +1,6 @@
 FROM ubuntu:24.04
 
-ENV TZ=Asia/Shanghai
+ENV TZ Asia/Shanghai
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list && \
