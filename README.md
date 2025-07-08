@@ -72,7 +72,7 @@ docker compose -f docker-compose-dev.yml build <service-name>
 
 | Image Name                | OS Version   | Libc Version | SSH Port    | Xinetd Port   | Archive |
 | ------------------------- | ------------ | ------------ | ----------- | ------------- | ------- |
-| th3s/pwn-env:ubuntu-16.04 | Ubuntu 16.04 | 2.23         | 21604 -> 22 | 61604 -> 8888 |         |
+| th3s/pwn-env:ubuntu-16.04 | Ubuntu 16.04 | 2.23         | 21604 -> 22 | 61604 -> 8888 | ✅      |
 | th3s/pwn-env:ubuntu-17.04 | Ubuntu 17.04 | 2.24         | 21704 -> 22 | 61704 -> 8888 | ✅      |
 | th3s/pwn-env:ubuntu-17.10 | Ubuntu 17.10 | 2.26         | 21710 -> 22 | 61710 -> 8888 | ✅      |
 | th3s/pwn-env:ubuntu-18.04 | Ubuntu 18.04 | 2.27         | 21804 -> 22 | 61804 -> 8888 |         |
