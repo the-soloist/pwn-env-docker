@@ -26,7 +26,6 @@ function sync-git-repo() {
 mkdir -p ./config/tmux/{plugins,themes}
 mkdir -p ./deps/{tools,scripts,python-package}
 mkdir -p ./docker/tools/gdb/plugins
-mkdir -p ./share/tools
 mkdir -p ./ssh
 echo "REPLACE THIS FILE" >./ssh/authorized_keys
 
