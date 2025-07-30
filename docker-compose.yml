@@ -1,19 +1,19 @@
 services:
-  # ubuntu-16.04:
-  #   image: th3s/pwn-env:ubuntu-16.04
-  #   container_name: pwn-env_ubuntu-16.04
-  #   volumes:
-  #     - ./challenge:/challenge
-  #     - ./config:/root/.config
-  #     - ./deps:/opt/deps
-  #     - ./share:/share
-  #     - ./ssh:/root/.ssh
-  #   ports:
-  #     - '21604:22'
-  #     - '61604:8888'
-  #   expose:
-  #     - '22'
-  #     - '8888'
+  ubuntu-16.04:
+    image: th3s/pwn-env:ubuntu-16.04
+    container_name: pwn-env_ubuntu-16.04
+    volumes:
+      - ./challenge:/challenge
+      - ./config:/root/.config
+      - ./deps:/opt/deps
+      - ./share:/share
+      - ./ssh:/root/.ssh
+    ports:
+      - '21604:22'
+      - '61604:8888'
+    expose:
+      - '22'
+      - '8888'
 
   ubuntu-17.04:
     image: th3s/pwn-env:ubuntu-17.04
