@@ -3,12 +3,14 @@ FROM ubuntu:24.10
 ENV TZ=Asia/Shanghai
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list && \
+RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/old-releases.ubuntu.com/g" /etc/apt/sources.list.d/ubuntu.sources && \
+    sed -i "s/http:\/\/security.ubuntu.com/http:\/\/old-releases.ubuntu.com/g" /etc/apt/sources.list.d/ubuntu.sources && \
     cat <<EOF >> /etc/apt/sources.list.d/ubuntu.sources
+
 # deb source package
 Types: deb-src
-URIs: http://mirrors.tuna.tsinghua.edu.cn/ubuntu/
-Suites: noble noble-updates noble-security
+URIs: http://old-releases.ubuntu.com/ubuntu/
+Suites: oracular oracular-updates oracular-security
 Components: main universe restricted multiverse
 Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg    
 EOF

@@ -301,7 +301,7 @@ services:
     container_name: pwn-env-dev_ubuntu-24.10
     build:
       context: ./
-      dockerfile: ./build/ubuntu/lts/24.10/Dockerfile
+      dockerfile: ./build/ubuntu/non-lts/24.10/Dockerfile
     volumes:
       - ./challenge:/challenge
       - ./config:/root/.config

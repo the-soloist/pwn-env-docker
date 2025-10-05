@@ -3,8 +3,10 @@ FROM ubuntu:24.04
 ENV TZ=Asia/Shanghai
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list && \
+RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list.d/ubuntu.sources && \
+    sed -i "s/http:\/\/security.ubuntu.com/http:\/\/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list.d/ubuntu.sources && \
     cat <<EOF >> /etc/apt/sources.list.d/ubuntu.sources
+
 # deb source package
 Types: deb-src
 URIs: http://mirrors.tuna.tsinghua.edu.cn/ubuntu/
