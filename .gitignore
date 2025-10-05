@@ -232,6 +232,7 @@ $RECYCLE.BIN/
 challenge/*
 config/tmux/plugins/*
 deps/*
+share/*
 ssh/*
 tools/gdb/plugins/*
 

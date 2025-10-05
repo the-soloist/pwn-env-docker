@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ $# -le 1 ]; then
+if [ $# -lt 0 ]; then
     echo "Usage:  $0 <container-id> [shell-type]"
     echo "  e.g.: $0 <id> bash"
     echo "  e.g.: $0 <id>  # 默认使用 bash"
