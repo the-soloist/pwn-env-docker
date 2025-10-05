@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-if [ $# -ne 2 ]; then
-    echo "Usage:  $0 <container-id> <shell-type>"
+if [ $# -le 1 ]; then
+    echo "Usage:  $0 <container-id> [shell-type]"
     echo "  e.g.: $0 <id> bash"
+    echo "  e.g.: $0 <id>  # 默认使用 bash"
 
     echo -e "\n>>> docker ps"
     docker ps
@@ -11,8 +12,8 @@ if [ $# -ne 2 ]; then
 fi
 
 CONTAINER_ID="$1"
-SHELL_TYPE="$2"
+SHELL_TYPE="${2:-bash}"
 
 set -x
 
-docker exec -it $CONTAINER_ID $SHELL_TYPE
+docker compose exec -it $CONTAINER_ID $SHELL_TYPE
