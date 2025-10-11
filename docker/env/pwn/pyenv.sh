@@ -27,9 +27,9 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
-pip3 install pip --upgrade
-pip3 install prettytable colorama loguru tqdm termcolor tabulate
-pip3 install ipdb ipython websocket-client psutil requests redis
-pip3 install gmpy2 pycryptodome
-pip3 install z3-solver angr pwntools winpwn
-pip3 install pybase62 base58 base91 pybase100
+pip3 install pip setuptools wheel --upgrade || exit -1
+pip3 install prettytable colorama loguru tqdm termcolor tabulate || exit -1
+pip3 install ipdb ipython websocket-client psutil requests redis || exit -1
+pip3 install gmpy2 pycryptodome || exit -1
+pip3 install z3-solver angr pwntools winpwn || exit -1
+pip3 install pybase62 base58 base91 pybase100 || exit -1

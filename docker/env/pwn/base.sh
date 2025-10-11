@@ -83,10 +83,10 @@ main() {
     gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/
 
     # 安装工具
-    gem_install "bindata" "${versions[bindata]}"
-    gem_install "elftools" "${versions[elftools]}"
-    gem_install "one_gadget" "${versions[one_gadget]}"
-    gem_install "seccomp-tools" "${versions[seccomp_tools]}"
+    gem_install "bindata" "${versions[bindata]}" || exit -1
+    gem_install "elftools" "${versions[elftools]}" || exit -1
+    gem_install "one_gadget" "${versions[one_gadget]}" || exit -1
+    gem_install "seccomp-tools" "${versions[seccomp_tools]}" || exit -1
 
     # pwndbg
     pushd "/root/tools/gdb/plugins/pwndbg"
@@ -94,7 +94,7 @@ main() {
     if [ "${versions[pwndbg]}" != "$VERSION_LATEST" ]; then
         git checkout -f "${versions[pwndbg]}"
     fi
-    ./setup.sh
+    ./setup.sh || exit -1
     cp /root/tools/gdb/init/pwndbg.conf /root/.gdbinit
     popd
 }
