@@ -66,10 +66,10 @@ RUN pip3 install pip==21.3.1
 # install custom tools
 RUN bash /opt/env/install.sh && \
     bash /opt/env/pyenv/deps.sh && \
-    bash /opt/env/pyenv/install.sh -p 3.10.16
+    bash /opt/env/pyenv/install.sh -p 3.10.19
 
 # install pwn tools
-RUN bash /opt/env/pwn/pyenv.sh -p 3.10.16 && \
+RUN bash /opt/env/pwn/pyenv.sh -p 3.10.19 && \
     bash /opt/env/pwn/base.sh -v ubuntu-18.04
 
 # download glibc source code

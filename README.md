@@ -163,9 +163,9 @@ bash ./xinetd.sh
     | 发行版 | Python 版本切换命令 |
     | ------------ | --------------------- |
     | Ubuntu 16.04 | `pyenv shell 3.8.20` |
-    | Ubuntu 18.04 | `pyenv shell 3.10.16` |
-    | Ubuntu 20.04 | `pyenv shell 3.10.16` |
-    | Ubuntu 22.04 | `pyenv shell 3.10.16` |
+    | Ubuntu 18.04 | `pyenv shell 3.10.19` |
+    | Ubuntu 20.04 | `pyenv shell 3.10.19` |
+    | Ubuntu 22.04 | `pyenv shell 3.10.19` |
     | Ubuntu 24.04 | `pyenv shell 3.12.9` |
 - gdb
   - 默认加载插件：Pwngdb
