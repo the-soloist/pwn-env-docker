@@ -28,7 +28,7 @@ if [[ $? -ne 0 ]]; then
 fi
 
 pip3 install pip setuptools wheel --upgrade || exit -1
-pip3 install prettytable colorama loguru tqdm termcolor tabulate || exit -1
+pip3 install rich prettytable colorama loguru tqdm termcolor tabulate || exit -1
 pip3 install ipdb ipython websocket-client psutil requests redis || exit -1
 pip3 install gmpy2 pycryptodome || exit -1
 pip3 install z3-solver angr pwntools winpwn || exit -1
