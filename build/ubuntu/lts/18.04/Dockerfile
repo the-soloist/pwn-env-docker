@@ -69,7 +69,8 @@ RUN bash /opt/env/install.sh && \
     bash /opt/env/pyenv/install.sh -p 3.10.19
 
 # install pwn tools
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -o /tmp/rust-install.sh | sh /tmp/rust-install.sh -y && \
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -o /tmp/rust-install.sh && \
+    sh /tmp/rust-install.sh -y && \
     bash /opt/env/pwn/pyenv.sh -p 3.10.19 && \
     bash /opt/env/pwn/base.sh -v ubuntu-18.04
 
