@@ -58,7 +58,7 @@ RUN apt-get update && \
     apt-get install -y gcc g++ make build-essential bc bison flex cmake pkg-config && \
     apt-get install -y python3 python3-pip ruby ruby-dev && \
     apt-get install -y libc6-dbg libc6-dbg:i386 libseccomp-dev libgmp-dev libmpfr-dev libmpc-dev libssl-dev libffi-dev && \
-    apt-get install -y gdb gdbserver strace socat openssh-server net-tools iputils-ping && \
+    apt-get install -y gdb gdbserver gdb-multiarch strace socat openssh-server net-tools iputils-ping && \
     apt-get install -y git vim tmux wget curl sshfs && \
     apt-get install -y netcat-traditional
 RUN pip3 install pip==21.3.1
