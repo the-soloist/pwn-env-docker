@@ -6,7 +6,7 @@ VERSION_LATEST="latest"
 # 初始化版本信息
 declare -A UBUNTU_1604
 UBUNTU_1604[bindata]="2.4.14"
-UBUNTU_1604[elftools]="$VERSION_LATEST"
+UBUNTU_1604[elftools]="1.1.3"
 UBUNTU_1604[one_gadget]="1.7.3"
 UBUNTU_1604[seccomp_tools]="1.3.0"
 UBUNTU_1604[pwndbg]="2022.01.05"
@@ -78,6 +78,8 @@ main() {
         exit 1
         ;;
     esac
+
+    set -x
 
     # 设置gem源
     gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/
