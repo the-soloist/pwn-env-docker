@@ -69,7 +69,8 @@ RUN bash /opt/env/install.sh && \
     bash /opt/env/pyenv/install.sh -p 3.10.19
 
 # install pwn tools
-RUN bash /opt/env/pwn/pyenv.sh -p 3.10.19 && \
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -o /tmp/rust-install.sh | sh /tmp/rust-install.sh -y && \
+    bash /opt/env/pwn/pyenv.sh -p 3.10.19 && \
     bash /opt/env/pwn/base.sh -v ubuntu-18.04
 
 # download glibc source code
@@ -85,6 +86,7 @@ RUN rm -rf /root/.cache && \
     rm -rf /root/.pip && \
     rm -rf /root/files/glibc_* && \
     rm -rf /tmp/scripts
+RUN rm -rf /root/.cargo/registry
 RUN apt-get clean
 
 

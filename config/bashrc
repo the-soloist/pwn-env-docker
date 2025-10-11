@@ -119,6 +119,10 @@ export PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
 export PIP_CONFIG_FILE="$XDG_CONFIG_HOME/pip/pip.conf"
 export PYTHONPATH="$PYTHONPATH:/opt/deps/python-package"
 
+# @ rust
+export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup
+export RUSTUP_UPDATE_ROOT=https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup
+
 # @ other
 export PATH="$HOME/.local/bin:$PATH"
 
