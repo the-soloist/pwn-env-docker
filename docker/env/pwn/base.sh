@@ -22,7 +22,7 @@ declare -A UBUNTU_2004
 UBUNTU_2004[bindata]="$VERSION_LATEST"
 UBUNTU_2004[elftools]="1.2.0"
 UBUNTU_2004[one_gadget]="1.9.0"
-UBUNTU_2004[seccomp_tools]="$VERSION_LATEST"
+UBUNTU_2004[seccomp_tools]="1.6.1"
 UBUNTU_2004[pwndbg]="2024.02.14"
 
 declare -A UBUNTU_2204
