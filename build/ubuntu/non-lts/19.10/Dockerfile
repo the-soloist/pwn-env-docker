@@ -63,7 +63,7 @@ RUN apt-get update && \
 RUN pip3 install pip --upgrade
 RUN pip3 install prettytable colorama loguru tqdm && \
     pip3 install ipdb websocket-client psutil requests redis && \
-    pip3 install gmpy2 pycryptodome && \
+    pip3 install gmpy2==2.2.1 pycryptodome && \
     pip3 install z3-solver angr pwntools
 
 RUN gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/ && \
