@@ -176,7 +176,7 @@ bash ./xinetd.sh
   - 主题：（需要手动修改启动参数）
     - 添加 [dracula](https://github.com/dracula/tmux) 主题配置
   - 配置：
-    - 默认 prefix 为 C-x
+    - 默认 prefix 为 C-b
 - gem
   - 默认源：https://mirrors.tuna.tsinghua.edu.cn/rubygems
 - apt
