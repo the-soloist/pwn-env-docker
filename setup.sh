@@ -12,7 +12,7 @@ function sync-git-repo() {
 
     if [ -d "$path/.git" ]; then
         pushd "$path" >/dev/null || return 0
-        git pull
+        git -c safe.directory="$(pwd)" pull
         popd >/dev/null || return 0
     else
         git clone "$url" "$path"
