@@ -20,13 +20,13 @@ PS: 只在 root 下进行了测试，非 root 用户可能存在权限问题，�
 
 ```sh
 cd /path/to/pwn-env-docker
-bash ./setup.sh
+sudo bash ./setup.sh
 ```
 
 ### 更新工具
 
 ```sh
-git pull && bash ./setup.sh
+git pull && sudo bash ./setup.sh
 ```
 
 ### 启动/关闭容器

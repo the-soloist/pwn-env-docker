@@ -5,316 +5,364 @@ services:
       context: ./
       dockerfile: ./build/ubuntu/lts/16.04/Dockerfile
     volumes:
-      - ./challenge:/challenge
-      - ./config:/root/.config
-      - ./deps:/opt/deps
-      - ./share:/share
-      - ./ssh:/root/.ssh
+    - ./challenge:/challenge
+    - ./config:/root/.config
+    - ./deps:/opt/deps
+    - ./share:/share
+    - ./ssh:/root/.ssh
     ports:
-      - '21604:22'
-      - '61604:8888'
+    - '21604:22'
+    - '61604:8888'
     expose:
-      - '22'
-      - '8888'
+    - '22'
+    - '8888'
     networks:
-      - devnet
-
+    - devnet
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
   ubuntu-17.04:
     container_name: pwn-env-dev_ubuntu-17.04
     build:
       context: ./
       dockerfile: ./build/ubuntu/non-lts/17.04/Dockerfile
     volumes:
-      - ./challenge:/challenge
-      - ./config:/root/.config
-      - ./deps:/opt/deps
-      - ./share:/share
-      - ./ssh:/root/.ssh
+    - ./challenge:/challenge
+    - ./config:/root/.config
+    - ./deps:/opt/deps
+    - ./share:/share
+    - ./ssh:/root/.ssh
     ports:
-      - '21704:22'
-      - '61704:8888'
+    - '21704:22'
+    - '61704:8888'
     expose:
-      - '22'
-      - '8888'
+    - '22'
+    - '8888'
     networks:
-      - devnet
-
+    - devnet
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
   ubuntu-17.10:
     container_name: pwn-env-dev_ubuntu-17.10
     build:
       context: ./
       dockerfile: ./build/ubuntu/non-lts/17.10/Dockerfile
     volumes:
-      - ./challenge:/challenge
-      - ./config:/root/.config
-      - ./deps:/opt/deps
-      - ./share:/share
-      - ./ssh:/root/.ssh
+    - ./challenge:/challenge
+    - ./config:/root/.config
+    - ./deps:/opt/deps
+    - ./share:/share
+    - ./ssh:/root/.ssh
     ports:
-      - '21710:22'
-      - '61710:8888'
+    - '21710:22'
+    - '61710:8888'
     expose:
-      - '22'
-      - '8888'
+    - '22'
+    - '8888'
     networks:
-      - devnet
-
+    - devnet
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
   ubuntu-18.04:
     container_name: pwn-env-dev_ubuntu-18.04
     build:
       context: ./
       dockerfile: ./build/ubuntu/lts/18.04/Dockerfile
     volumes:
-      - ./challenge:/challenge
-      - ./config:/root/.config
-      - ./deps:/opt/deps
-      - ./share:/share
-      - ./ssh:/root/.ssh
+    - ./challenge:/challenge
+    - ./config:/root/.config
+    - ./deps:/opt/deps
+    - ./share:/share
+    - ./ssh:/root/.ssh
     ports:
-      - '21804:22'
-      - '61804:8888'
+    - '21804:22'
+    - '61804:8888'
     expose:
-      - '22'
-      - '8888'
+    - '22'
+    - '8888'
     networks:
-      - devnet
-
+    - devnet
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
   ubuntu-18.10:
     container_name: pwn-env-dev_ubuntu-18.10
     build:
       context: ./
       dockerfile: ./build/ubuntu/non-lts/18.10/Dockerfile
     volumes:
-      - ./challenge:/challenge
-      - ./config:/root/.config
-      - ./deps:/opt/deps
-      - ./share:/share
-      - ./ssh:/root/.ssh
+    - ./challenge:/challenge
+    - ./config:/root/.config
+    - ./deps:/opt/deps
+    - ./share:/share
+    - ./ssh:/root/.ssh
     ports:
-      - '21810:22'
-      - '61810:8888'
+    - '21810:22'
+    - '61810:8888'
     expose:
-      - '22'
-      - '8888'
+    - '22'
+    - '8888'
     networks:
-      - devnet
-
+    - devnet
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
   ubuntu-19.04:
     container_name: pwn-env-dev_ubuntu-19.04
     build:
       context: ./
       dockerfile: ./build/ubuntu/non-lts/19.04/Dockerfile
     volumes:
-      - ./challenge:/challenge
-      - ./config:/root/.config
-      - ./deps:/opt/deps
-      - ./share:/share
-      - ./ssh:/root/.ssh
+    - ./challenge:/challenge
+    - ./config:/root/.config
+    - ./deps:/opt/deps
+    - ./share:/share
+    - ./ssh:/root/.ssh
     ports:
-      - '21904:22'
-      - '61904:8888'
+    - '21904:22'
+    - '61904:8888'
     expose:
-      - '22'
-      - '8888'
+    - '22'
+    - '8888'
     networks:
-      - devnet
-
+    - devnet
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
   ubuntu-19.10:
     container_name: pwn-env-dev_ubuntu-19.10
     build:
       context: ./
       dockerfile: ./build/ubuntu/non-lts/19.10/Dockerfile
     volumes:
-      - ./challenge:/challenge
-      - ./config:/root/.config
-      - ./deps:/opt/deps
-      - ./share:/share
-      - ./ssh:/root/.ssh
+    - ./challenge:/challenge
+    - ./config:/root/.config
+    - ./deps:/opt/deps
+    - ./share:/share
+    - ./ssh:/root/.ssh
     ports:
-      - '21910:22'
-      - '61910:8888'
+    - '21910:22'
+    - '61910:8888'
     expose:
-      - '22'
-      - '8888'
+    - '22'
+    - '8888'
     networks:
-      - devnet
-
+    - devnet
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
   ubuntu-20.04:
     container_name: pwn-env-dev_ubuntu-20.04
     build:
       context: ./
       dockerfile: ./build/ubuntu/lts/20.04/Dockerfile
     volumes:
-      - ./challenge:/challenge
-      - ./config:/root/.config
-      - ./deps:/opt/deps
-      - ./share:/share
-      - ./ssh:/root/.ssh
+    - ./challenge:/challenge
+    - ./config:/root/.config
+    - ./deps:/opt/deps
+    - ./share:/share
+    - ./ssh:/root/.ssh
     ports:
-      - '22004:22'
-      - '62004:8888'
+    - '22004:22'
+    - '62004:8888'
     expose:
-      - '22'
-      - '8888'
+    - '22'
+    - '8888'
     networks:
-      - devnet
-
+    - devnet
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
   ubuntu-20.10:
     container_name: pwn-env-dev_ubuntu-20.10
     build:
       context: ./
       dockerfile: ./build/ubuntu/non-lts/20.10/Dockerfile
     volumes:
-      - ./challenge:/challenge
-      - ./config:/root/.config
-      - ./deps:/opt/deps
-      - ./share:/share
-      - ./ssh:/root/.ssh
+    - ./challenge:/challenge
+    - ./config:/root/.config
+    - ./deps:/opt/deps
+    - ./share:/share
+    - ./ssh:/root/.ssh
     ports:
-      - '22010:22'
-      - '62010:8888'
+    - '22010:22'
+    - '62010:8888'
     expose:
-      - '22'
-      - '8888'
+    - '22'
+    - '8888'
     networks:
-      - devnet
-
+    - devnet
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
   ubuntu-21.04:
     container_name: pwn-env-dev_ubuntu-21.04
     build:
       context: ./
       dockerfile: ./build/ubuntu/non-lts/21.04/Dockerfile
     volumes:
-      - ./challenge:/challenge
-      - ./config:/root/.config
-      - ./deps:/opt/deps
-      - ./share:/share
-      - ./ssh:/root/.ssh
+    - ./challenge:/challenge
+    - ./config:/root/.config
+    - ./deps:/opt/deps
+    - ./share:/share
+    - ./ssh:/root/.ssh
     ports:
-      - '22104:22'
-      - '62104:8888'
+    - '22104:22'
+    - '62104:8888'
     expose:
-      - '22'
-      - '8888'
+    - '22'
+    - '8888'
     networks:
-      - devnet
-
+    - devnet
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
   ubuntu-22.04:
     container_name: pwn-env-dev_ubuntu-22.04
     build:
       context: ./
       dockerfile: ./build/ubuntu/lts/22.04/Dockerfile
     volumes:
-      - ./challenge:/challenge
-      - ./config:/root/.config
-      - ./deps:/opt/deps
-      - ./share:/share
-      - ./ssh:/root/.ssh
+    - ./challenge:/challenge
+    - ./config:/root/.config
+    - ./deps:/opt/deps
+    - ./share:/share
+    - ./ssh:/root/.ssh
     ports:
-      - '22204:22'
-      - '62204:8888'
+    - '22204:22'
+    - '62204:8888'
     expose:
-      - '22'
-      - '8888'
+    - '22'
+    - '8888'
     networks:
-      - devnet
-
+    - devnet
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
   ubuntu-22.10:
     container_name: pwn-env-dev_ubuntu-22.10
     build:
       context: ./
       dockerfile: ./build/ubuntu/non-lts/22.10/Dockerfile
     volumes:
-      - ./challenge:/challenge
-      - ./config:/root/.config
-      - ./deps:/opt/deps
-      - ./share:/share
-      - ./ssh:/root/.ssh
+    - ./challenge:/challenge
+    - ./config:/root/.config
+    - ./deps:/opt/deps
+    - ./share:/share
+    - ./ssh:/root/.ssh
     ports:
-      - '22210:22'
-      - '62210:8888'
+    - '22210:22'
+    - '62210:8888'
     expose:
-      - '22'
-      - '8888'
+    - '22'
+    - '8888'
     networks:
-      - devnet
-
+    - devnet
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
   ubuntu-23.04:
     container_name: pwn-env-dev_ubuntu-23.04
     build:
       context: ./
       dockerfile: ./build/ubuntu/non-lts/23.04/Dockerfile
     volumes:
-      - ./challenge:/challenge
-      - ./config:/root/.config
-      - ./deps:/opt/deps
-      - ./share:/share
-      - ./ssh:/root/.ssh
+    - ./challenge:/challenge
+    - ./config:/root/.config
+    - ./deps:/opt/deps
+    - ./share:/share
+    - ./ssh:/root/.ssh
     ports:
-      - '22304:22'
-      - '62304:8888'
+    - '22304:22'
+    - '62304:8888'
     expose:
-      - '22'
-      - '8888'
+    - '22'
+    - '8888'
     networks:
-      - devnet
-
+    - devnet
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
   ubuntu-23.10:
     container_name: pwn-env-dev_ubuntu-23.10
     build:
       context: ./
       dockerfile: ./build/ubuntu/non-lts/23.10/Dockerfile
     volumes:
-      - ./challenge:/challenge
-      - ./config:/root/.config
-      - ./deps:/opt/deps
-      - ./share:/share
-      - ./ssh:/root/.ssh
+    - ./challenge:/challenge
+    - ./config:/root/.config
+    - ./deps:/opt/deps
+    - ./share:/share
+    - ./ssh:/root/.ssh
     ports:
-      - '22310:22'
-      - '62310:8888'
+    - '22310:22'
+    - '62310:8888'
     expose:
-      - '22'
-      - '8888'
+    - '22'
+    - '8888'
     networks:
-      - devnet
-
+    - devnet
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
   ubuntu-24.04:
     container_name: pwn-env-dev_ubuntu-24.04
     build:
       context: ./
       dockerfile: ./build/ubuntu/lts/24.04/Dockerfile
     volumes:
-      - ./challenge:/challenge
-      - ./config:/root/.config
-      - ./deps:/opt/deps
-      - ./share:/share
-      - ./ssh:/root/.ssh
+    - ./challenge:/challenge
+    - ./config:/root/.config
+    - ./deps:/opt/deps
+    - ./share:/share
+    - ./ssh:/root/.ssh
     ports:
-      - '22404:22'
-      - '62404:8888'
+    - '22404:22'
+    - '62404:8888'
     expose:
-      - '22'
-      - '8888'
-
+    - '22'
+    - '8888'
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
   ubuntu-24.10:
     container_name: pwn-env-dev_ubuntu-24.10
     build:
       context: ./
       dockerfile: ./build/ubuntu/non-lts/24.10/Dockerfile
     volumes:
-      - ./challenge:/challenge
-      - ./config:/root/.config
-      - ./deps:/opt/deps
-      - ./share:/share
-      - ./ssh:/root/.ssh
+    - ./challenge:/challenge
+    - ./config:/root/.config
+    - ./deps:/opt/deps
+    - ./share:/share
+    - ./ssh:/root/.ssh
     ports:
-      - '22410:22'
-      - '62410:8888'
+    - '22410:22'
+    - '62410:8888'
     expose:
-      - '22'
-      - '8888'
-
+    - '22'
+    - '8888'
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
 networks:
   devnet:
     driver: bridge
